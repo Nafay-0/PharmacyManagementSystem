@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloController {
+public class MainController {
     @FXML
     private Label welcomeText;
 
@@ -17,8 +17,8 @@ public class HelloController {
         welcomeText.setText("Welcome to JavaFX Application!");
 
         // switch to login page
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 300);
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AdminPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 750, 600);
         Stage stage = new Stage();
         stage.setTitle("Login");
         stage.setScene(scene);

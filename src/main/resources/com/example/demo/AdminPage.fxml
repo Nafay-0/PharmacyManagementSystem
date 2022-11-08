@@ -5,20 +5,23 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.AdminController">
+<AnchorPane prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.AdminController">
    <children>
-      <Text layoutX="226.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Manager!">
+      <Text layoutX="311.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Manager!">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Button layoutX="58.0" layoutY="102.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="115.0" text="Generate Report" />
-      <Button layoutX="237.0" layoutY="102.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" text="StockView" />
-      <Button layoutX="53.0" layoutY="231.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" text="OrderMedicine" />
-      <Button layoutX="237.0" layoutY="226.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" text="AddNewMedicine" />
-      <Button layoutX="399.0" layoutY="101.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="147.0" text="ManageAvlStock" />
-      <Button layoutX="406.0" layoutY="226.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="147.0" text="Remove Medicine" />
-      <Button layoutX="268.0" layoutY="353.0" mnemonicParsing="false" text="EXIT" />
+      <Button layoutX="205.0" layoutY="163.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="115.0" text="Generate Report" />
+      <Button layoutX="333.0" layoutY="163.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" text="StockView" />
+      <Button layoutX="199.0" layoutY="310.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" text="OrderMedicine" />
+      <Button layoutX="335.0" layoutY="310.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" text="AddNewMedicine" />
+      <Button layoutX="469.0" layoutY="163.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="147.0" text="ManageAvlStock" />
+      <Button layoutX="469.0" layoutY="310.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="147.0" text="Remove Medicine" />
+      <AnchorPane prefHeight="600.0" prefWidth="140.0" style="-fx-background-color: purple;">
+         <children>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
