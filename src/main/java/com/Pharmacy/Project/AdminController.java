@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.Pharmacy.Project;
 
 public class AdminController {
 

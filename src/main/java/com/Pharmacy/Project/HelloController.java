@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.Pharmacy.Project;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainController {
+public class HelloController {
     @FXML
     private Label welcomeText;
 

@@ -1,6 +1,4 @@
-package com.example.demo;
-
-import javafx.scene.control.Label;
+package com.Pharmacy.Project;
 
 public class LoginController {
     // check if the user is valid
