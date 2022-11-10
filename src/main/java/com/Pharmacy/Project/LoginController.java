@@ -68,8 +68,6 @@ public class LoginController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
         } else {
             System.out.println("Login Failed");
             // show alert for invalid credentials
