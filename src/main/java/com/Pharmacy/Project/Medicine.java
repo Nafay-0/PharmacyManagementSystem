@@ -5,13 +5,11 @@ import java.util.Date;
 public class Medicine {
     private int MedicineId;
     private int SupplierId;
-    private int quantity;
     private Date expiryDate;
 
     public Medicine(int MedicineId, int SupplierId, int quantity, Date expiryDate) {
         this.MedicineId = MedicineId;
         this.SupplierId = SupplierId;
-        this.quantity = quantity;
         this.expiryDate = expiryDate;
     }
 

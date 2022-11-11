@@ -6,21 +6,27 @@ import java.util.Date;
 public class Sale {
     int SaleId;
     String CustomerName;
-    int SaleQuantity;
-    ArrayList<Medicine> SaleMedicine;
-    int SalePrice;
+    int TotalPrice;
     Date SaleDate;
     boolean SaleStatus;
+    ArrayList<SaleLineItem> SaleLineItems;
 
-
-    public Sale(int saleId, String customerName, int saleQuantity, ArrayList<Medicine> saleMedicine, int salePrice, Date saleDate, boolean saleStatus) {
+    public Sale(int saleId, String customerName, int totalPrice, Date saleDate, boolean saleStatus, ArrayList<SaleLineItem> saleLineItems) {
         SaleId = saleId;
         CustomerName = customerName;
-        SaleQuantity = saleQuantity;
-        SaleMedicine = saleMedicine;
-        SalePrice = salePrice;
+        TotalPrice = totalPrice;
         SaleDate = saleDate;
         SaleStatus = saleStatus;
+        SaleLineItems = saleLineItems;
+    }
+
+    public Sale(int saleId, String customerName, int totalPrice, Date saleDate, boolean saleStatus) {
+        SaleId = saleId;
+        CustomerName = customerName;
+        TotalPrice = totalPrice;
+        SaleDate = saleDate;
+        SaleStatus = saleStatus;
+        SaleLineItems = new ArrayList<>();
     }
 
     public int getSaleId() {
@@ -39,28 +45,12 @@ public class Sale {
         CustomerName = customerName;
     }
 
-    public int getSaleQuantity() {
-        return SaleQuantity;
+    public int getTotalPrice() {
+        return TotalPrice;
     }
 
-    public void setSaleQuantity(int saleQuantity) {
-        SaleQuantity = saleQuantity;
-    }
-
-    public ArrayList<Medicine> getSaleMedicine() {
-        return SaleMedicine;
-    }
-
-    public void setSaleMedicine(ArrayList<Medicine> saleMedicine) {
-        SaleMedicine = saleMedicine;
-    }
-
-    public int getSalePrice() {
-        return SalePrice;
-    }
-
-    public void setSalePrice(int salePrice) {
-        SalePrice = salePrice;
+    public void setTotalPrice(int totalPrice) {
+        TotalPrice = totalPrice;
     }
 
     public Date getSaleDate() {
@@ -79,16 +69,24 @@ public class Sale {
         SaleStatus = saleStatus;
     }
 
+    public ArrayList<SaleLineItem> getSaleLineItems() {
+        return SaleLineItems;
+    }
+
+    public void setSaleLineItems(ArrayList<SaleLineItem> saleLineItems) {
+        SaleLineItems = saleLineItems;
+    }
+
     @Override
     public String toString() {
         return "Sale{" +
                 "SaleId=" + SaleId +
                 ", CustomerName='" + CustomerName + '\'' +
-                ", SaleQuantity=" + SaleQuantity +
-                ", SaleMedicine=" + SaleMedicine +
-                ", SalePrice=" + SalePrice +
+                ", TotalPrice=" + TotalPrice +
                 ", SaleDate=" + SaleDate +
                 ", SaleStatus=" + SaleStatus +
+                ", SaleLineItems=" + SaleLineItems +
                 '}';
     }
-}
+};
+

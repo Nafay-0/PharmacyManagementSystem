@@ -17,4 +17,11 @@ public class Receipt {
         this.ReceiptID = ReceiptID;
     }
 
+    public int getSaleID() {
+        return SaleID;
+    }
+
+    public void setSaleID(int saleID) {
+        SaleID = saleID;
+    }
 }
