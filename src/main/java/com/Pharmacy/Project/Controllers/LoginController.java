@@ -1,4 +1,4 @@
-package com.Pharmacy.Project;
+package com.Pharmacy.Project.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -60,7 +60,7 @@ public class LoginController implements Initializable {
 
             // redirect to new page AdminPage.fxml
             try {
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdminPage.fxml")));
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/AdminPage.fxml")));
                 Stage stage = (Stage) scenePane.getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.show();
