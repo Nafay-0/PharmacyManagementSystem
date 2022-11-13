@@ -40,6 +40,8 @@ public class LoginController implements Initializable {
     public boolean isUserValid(String username, String password,String role) {
         if (username.equals("admin") && password.equals("admin") && role.equals("Manager")) {
             return true;
+        } else if (username.equals("cashier") && password.equals("cashier") && role.equals("Cashier")) {
+            return true;
         } else {
             return false;
         }
@@ -58,15 +60,24 @@ public class LoginController implements Initializable {
             alert.setContentText("Welcome " + username);
             alert.showAndWait();
 
-            // redirect to new page AdminPage.fxml
-            try {
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/AdminPage.fxml")));
-                Stage stage = (Stage) scenePane.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (Objects.equals(role, "Manager")) {
+                try {
+                    Stage stage = (Stage) loginButton.getScene().getWindow();
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/AdminPage.fxml")));
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (Objects.equals(role, "Cashier")) {
+                try {
+                    Stage stage = (Stage) loginButton.getScene().getWindow();
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/CashierPage.fxml")));
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         } else {
             System.out.println("Login Failed");

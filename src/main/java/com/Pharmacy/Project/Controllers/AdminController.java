@@ -16,6 +16,11 @@ public class AdminController {
     private Button reportBtn;
     @FXML
     private Button addBtn;
+    @FXML
+    private Button removeBtn;
+    @FXML
+    private Button viewBtn;
+
 
     public void showReport(ActionEvent event) throws IOException {
         Stage stage = (Stage) reportBtn.getScene().getWindow();
