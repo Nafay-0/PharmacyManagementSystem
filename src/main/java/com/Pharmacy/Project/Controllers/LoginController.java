@@ -1,5 +1,6 @@
 package com.Pharmacy.Project.Controllers;
 
+import com.Pharmacy.Project.Pharmacy;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -32,22 +34,26 @@ public class LoginController implements Initializable {
     private ChoiceBox<String> userchoice;
     private String[] roles = {"Manager", "Cashier"};
 
+    Pharmacy pharmacy = new Pharmacy();
 
 
 
 
 
-    public boolean isUserValid(String username, String password,String role) {
-        if (username.equals("admin") && password.equals("admin") && role.equals("Manager")) {
+    public boolean isUserValid(String username, String password,String role) throws SQLException {
+        if (role.equals("Manager") && pharmacy.verifyManager(username,password)){
             return true;
-        } else if (username.equals("cashier") && password.equals("cashier") && role.equals("Cashier")) {
+        }
+        else if (username.equals("cashier") && password.equals("cashier") && role.equals("Cashier")) {
             return true;
         } else {
             return false;
         }
     }
 
-    public void login(ActionEvent event) {
+
+
+    public void login(ActionEvent event) throws SQLException {
         String username = loginId.getText();
         String password = loginPassword.getText();
         String role = userchoice.getValue();

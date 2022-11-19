@@ -1,5 +1,9 @@
 package com.Pharmacy.Project;
 
+import com.Pharmacy.Project.DBLayer.dbHandler;
+import com.Pharmacy.Project.DBLayer.mysqlDB;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Pharmacy {
@@ -12,6 +16,12 @@ public class Pharmacy {
     Catalogue medicineCatalogue;
     ArrayList<Supplier> supplierList;
 
+    dbHandler db;
+
+    public Pharmacy(){
+        db = new mysqlDB();
+    }
+
     public Pharmacy(String name, String address, String phone) {
         this.name = name;
         this.address = address;
@@ -20,6 +30,7 @@ public class Pharmacy {
         this.orderRecord = new OrderRecord();
         this.medicineCatalogue = new Catalogue();
         this.supplierList = new ArrayList<Supplier>();
+        db = new mysqlDB();
     }
 
 
@@ -77,5 +88,17 @@ public class Pharmacy {
 
     public void setSupplierList(ArrayList<Supplier> supplierList) {
         this.supplierList = supplierList;
+    }
+
+
+    public Boolean verifyManager(String EmployeeName, String password) throws SQLException {
+        return db.verifyManager(EmployeeName, password);
+    }
+    public dbHandler getDb() {
+        return db;
+    }
+
+    public void setDb(dbHandler db) {
+        this.db = db;
     }
 }

@@ -1,9 +1,14 @@
-package com.Pharmacy.Project;
+package com.Pharmacy.Project.DBLayer;
 
+import com.Pharmacy.Project.*;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 // generic db class; can be used for any db mysql, oracle, etc
 public abstract class dbHandler {
+    public abstract   Boolean verifyManager(String EmployeeName, String EmployeePassword) throws SQLException;
+    public abstract boolean verifyCashier(String EmployeeName, String EmployeePassword) throws SQLException;
     abstract void insertSales(Sale S);
     abstract void addManager(Manager M);
     abstract void addCashier(Cashier c);

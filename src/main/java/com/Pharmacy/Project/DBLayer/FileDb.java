@@ -1,19 +1,25 @@
-package com.Pharmacy.Project;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+package com.Pharmacy.Project.DBLayer;
+
+import com.Pharmacy.Project.*;
+import com.Pharmacy.Project.DBLayer.dbHandler;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class mysqlDB extends dbHandler{
-    // mysql specific code
-    private Connection connection = null;
-    private Statement statement = null;
-    private ResultSet resultSet = null;
-    private String url = "jdbc:mysql://localhost:3306/BankDB";
-    private String user = "root";
-    private String password = "tiger123";
+public class FileDb extends dbHandler {
+    private String path;
 
+
+
+    @Override
+    public Boolean verifyManager(String EmployeeName, String EmployeePassword) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean verifyCashier(String EmployeeName, String EmployeePassword) throws SQLException {
+        return false;
+    }
 
     @Override
     void insertSales(Sale S) {

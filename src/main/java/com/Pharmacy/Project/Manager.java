@@ -7,15 +7,15 @@ public class Manager {
     String EmployeePhone;
     String EmployeePassword;
 
-    private static Manager instance = null;
-    private Manager() {
+    //private static Manager instance = null;
+     Manager() {
     }
-    public static Manager getInstance() {
-        if(instance == null) {
-            instance = new Manager();
-        }
-        return instance;
-    }
+//    public static Manager getInstance() {
+//        if(instance == null) {
+//            instance = new Manager();
+//        }
+//        return instance;
+//    }
 
     public int getEmployeeID() {
         return EmployeeID;

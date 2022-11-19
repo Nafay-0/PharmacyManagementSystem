@@ -3,7 +3,6 @@ package com.Pharmacy.Project;
 public class MedicineDescription {
     private int MedicineId;
     private String MedicineName;
-    private String MedicineType;
     private String MedicineDescription;
     private String Manufacturer;
 
@@ -18,12 +17,6 @@ public class MedicineDescription {
     }
     public void setMedicineName(String medicineName) {
         MedicineName = medicineName;
-    }
-    public String getMedicineType() {
-        return MedicineType;
-    }
-    public void setMedicineType(String medicineType) {
-        MedicineType = medicineType;
     }
     public String getMedicineDescription() {
         return MedicineDescription;
