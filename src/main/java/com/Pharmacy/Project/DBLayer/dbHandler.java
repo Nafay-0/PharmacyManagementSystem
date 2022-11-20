@@ -23,5 +23,5 @@ public abstract class dbHandler {
     abstract ArrayList<MedicineOrder> getOrders();
 
 
-
+    public abstract ArrayList<Medicine> getAllMedicines() throws SQLException;
 }

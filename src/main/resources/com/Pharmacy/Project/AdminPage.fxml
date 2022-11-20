@@ -16,7 +16,7 @@
       <Button layoutX="333.0" layoutY="163.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" text="StockView" />
       <Button layoutX="199.0" layoutY="310.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" text="OrderMedicine" />
       <Button fx:id="addBtn" layoutX="335.0" layoutY="310.0" mnemonicParsing="false" onAction="#addMedicine" prefHeight="70.0" prefWidth="126.0" text="AddNewMedicine" />
-      <Button layoutX="469.0" layoutY="163.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="147.0" text="ManageAvlStock" />
+      <Button fx:id="checkStock" layoutX="469.0" layoutY="163.0" mnemonicParsing="false" onAction="#ManageStock" prefHeight="70.0" prefWidth="147.0" text="ManageAvlStock" />
       <Button layoutX="469.0" layoutY="310.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="147.0" text="Remove Medicine" />
       <AnchorPane prefHeight="600.0" prefWidth="140.0" style="-fx-background-color: purple;">
          <children>

@@ -94,6 +94,9 @@ public class Pharmacy {
     public Boolean verifyManager(String EmployeeName, String password) throws SQLException {
         return db.verifyManager(EmployeeName, password);
     }
+    public ArrayList<Medicine>getAllMedicines() throws SQLException {
+        return db.getAllMedicines();
+    }
     public dbHandler getDb() {
         return db;
     }

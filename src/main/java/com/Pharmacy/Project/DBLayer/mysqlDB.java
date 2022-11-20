@@ -99,5 +99,32 @@ public class mysqlDB extends dbHandler {
         return null;
     }
 
+    @Override
+    public ArrayList<Medicine> getAllMedicines() throws SQLException {
+        connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        String query = "SELECT * FROM Medicine";
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
+        // check if result set is empty
+        if (!resultSet.isBeforeFirst()) {
+           System.out.println("No data");
+        }
+        ArrayList<Medicine> medicines = new ArrayList<>();
+        // print the result set
+        while (resultSet.next()) {
+            Medicine medicine = new Medicine();
+            medicine.setMedicineId(resultSet.getInt("MedicineId"));
+            medicine.setQuantity(resultSet.getInt("quantity"));
+            medicines.add(medicine);
+        }
+        //System.out.println(medicines);
+//        // print all the medicines
+//        for (Medicine medicine : medicines) {
+//            System.out.println(medicine.getMedicineId() + " " + medicine.getQuantity());
+//        }
+
+        return medicines;
+    }
 
 }

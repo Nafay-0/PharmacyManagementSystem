@@ -80,4 +80,9 @@ public class FileDb extends dbHandler {
     ArrayList<MedicineOrder> getOrders() {
         return null;
     }
+
+    @Override
+    public ArrayList<Medicine> getAllMedicines() {
+        return null;
+    }
 }

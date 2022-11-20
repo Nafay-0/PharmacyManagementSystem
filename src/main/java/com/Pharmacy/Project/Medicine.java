@@ -1,16 +1,21 @@
 package com.Pharmacy.Project;
 
-import java.util.Date;
+import java.util.ArrayList;
 
 public class Medicine {
     private int MedicineId;
-    private int SupplierId;
+    private ArrayList<Supplier> suppliers;
     int quantity;
 
-    public Medicine(int MedicineId, int SupplierId, int quantity) {
+    public Medicine(int MedicineId, int quantity, ArrayList<Supplier> suppliers) {
         this.MedicineId = MedicineId;
-        this.SupplierId = SupplierId;
         this.quantity = quantity;
+        this.suppliers = suppliers;
+    }
+    public Medicine(){
+        this.MedicineId = 0;
+        this.quantity = 0;
+        this.suppliers = new ArrayList<Supplier>();
     }
 
     public int getMedicineId() {
@@ -21,12 +26,15 @@ public class Medicine {
         this.MedicineId = MedicineId;
     }
 
-    public int getSupplierId() {
-        return SupplierId;
+    public ArrayList<Supplier> getSuppliers() {
+        return suppliers;
     }
 
-    public void setSupplierId(int SupplierId) {
-        this.SupplierId = SupplierId;
+    public void setSuppliers(ArrayList<Supplier> suppliers) {
+        this.suppliers = suppliers;
+    }
+    public void addSupplier(Supplier supplier){
+        this.suppliers.add(supplier);
     }
 
     public int getQuantity() {
