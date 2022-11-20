@@ -7,7 +7,7 @@ public class Medicine {
     private int SupplierId;
     int quantity;
 
-    public Medicine(int MedicineId, int SupplierId, int quantity, Date expiryDate) {
+    public Medicine(int MedicineId, int SupplierId, int quantity) {
         this.MedicineId = MedicineId;
         this.SupplierId = SupplierId;
         this.quantity = quantity;

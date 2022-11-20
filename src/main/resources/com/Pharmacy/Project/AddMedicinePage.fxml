@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,49 +17,53 @@
                 <!--                <Image url="@../Images/medicine-science-concept-background.jpg" />-->
             </image>
         </ImageView>
-        <AnchorPane prefHeight="600.0" prefWidth="145.0" style="-fx-background-color: #8fbac2;" />
+        <AnchorPane prefHeight="600.0" prefWidth="145.0" style="-fx-background-color: #8fbac2;">
+         <children>
+                <Button fx:id="retBut" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #d73a49; -fx-background-radius: 15;" text="Back" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Button>
+         </children></AnchorPane>
         <Label layoutX="176.0" layoutY="33.0" text="Add Medicine">
             <font>
                 <Font name="Arial Black" size="27.0" />
             </font>
         </Label>
-        <TextField fx:id="searchMed" layoutX="179.0" layoutY="101.0" prefHeight="28.0" prefWidth="392.0" promptText="Type Medicine Name" />
+        <TextField fx:id="searchMed" layoutX="180.0" layoutY="101.0" prefHeight="28.0" prefWidth="392.0" promptText="Type Medicine Name" />
         <Button fx:id="searchBut" alignment="CENTER" contentDisplay="CENTER" layoutX="582.0" layoutY="101.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="62.0" style="-fx-background-color: #009ee2; -fx-border-width: 1; -fx-border-radius: 15; -fx-background-radius: 15;" text="Search" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Verdana" size="12.0" />
             </font>
         </Button>
-        <ListView fx:id="medListView" layoutX="176.0" layoutY="172.0" prefHeight="200.0" prefWidth="468.0" />
+        <ListView fx:id="medListView" layoutX="176.0" layoutY="172.0" prefHeight="156.0" prefWidth="468.0" />
         <AnchorPane layoutX="150.0" layoutY="482.0" prefHeight="118.0" prefWidth="600.0">
             <children>
-                <Button fx:id="proceedBut" layoutX="473.0" layoutY="45.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #6bc45a; -fx-background-radius: 15;" text="Add" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                <Button fx:id="proceedBut" layoutX="402.0" layoutY="51.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #6bc45a; -fx-background-radius: 15;" text="Add" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </Button>
-                <Button fx:id="retBut" layoutX="392.0" layoutY="45.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #d73a49; -fx-background-radius: 15;" text="Back" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-                    <font>
-                        <Font size="13.0" />
-                    </font>
-                </Button>
+            <TextArea  layoutX="29.0" layoutY="20.0" prefHeight="62.0" prefWidth="328.0" text="" />
+            <Text layoutX="29.0" layoutY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
             </children>
         </AnchorPane>
-        <TextField fx:id="med_name" layoutX="176.0" layoutY="402.0" prefHeight="30.0" prefWidth="200.0" promptText="Medicine Name" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1 0;">
+        <TextField fx:id="med_name" layoutX="176.0" layoutY="372.0" prefHeight="30.0" prefWidth="200.0" promptText="Medicine Name" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1 0;">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="price" layoutX="176.0" layoutY="442.0" prefHeight="30.0" prefWidth="200.0" promptText="Price" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1 0;">
+        <TextField fx:id="price" layoutX="176.0" layoutY="427.0" prefHeight="30.0" prefWidth="200.0" promptText="Price" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1 0;">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="quan" layoutX="444.0" layoutY="442.0" prefHeight="30.0" prefWidth="200.0" promptText="Quantity" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1 0;">
+        <TextField fx:id="quan" layoutX="444.0" layoutY="427.0" prefHeight="30.0" prefWidth="200.0" promptText="Quantity" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1 0;">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="comp" layoutX="444.0" layoutY="402.0" prefHeight="30.0" prefWidth="200.0" promptText="Company Name" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1 0;">
+        <TextField fx:id="comp" layoutX="444.0" layoutY="372.0" prefHeight="30.0" prefWidth="200.0" promptText="Company Name" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 1 0;">
             <font>
                 <Font size="14.0" />
             </font>

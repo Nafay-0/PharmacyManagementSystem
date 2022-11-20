@@ -1,16 +1,29 @@
 package com.Pharmacy.Project;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MedicineCatalog {
-    private ArrayList<MedicineDescription> AvailableMedicines;
+    // map of medicine to medicine description
+    private ArrayList<Medicine> medicineList;
+    // hash map of medicine id to medicine description
+    private HashMap<Integer, MedicineDescription> medicineDescriptionMap;
+
     public MedicineCatalog() {
-        AvailableMedicines = new ArrayList<MedicineDescription>();
+        medicineList = new ArrayList<Medicine>();
+        medicineDescriptionMap = new HashMap<Integer, MedicineDescription>();
     }
-    public void addMedicine(MedicineDescription medicine) {
-        AvailableMedicines.add(medicine);
+    public void addMedicine(Medicine medicine , MedicineDescription description) {
+        medicineList.add(medicine);
+        medicineDescriptionMap.put(medicine.getMedicineId(), description);
     }
-    public void removeMedicine(MedicineDescription medicine) {
-        AvailableMedicines.remove(medicine);
+    public void removeMedicine(Medicine medicine) {
+        medicineList.remove(medicine);
+        medicineDescriptionMap.remove(medicine.getMedicineId());
     }
+    public ArrayList<Medicine> getMedicineList() {
+        return medicineList;
+    }
+
+
 };
