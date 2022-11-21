@@ -90,4 +90,9 @@ public class FileDb extends dbHandler {
     public MedicineCatalog getMedicineCatalog() throws SQLException {
         return null;
     }
+
+    @Override
+    public void updateStock(int MedicineId, int Quantity) throws SQLException {
+
+    }
 }

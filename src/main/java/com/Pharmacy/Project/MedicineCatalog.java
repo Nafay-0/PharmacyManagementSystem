@@ -1,5 +1,9 @@
 package com.Pharmacy.Project;
 
+import com.Pharmacy.Project.DBLayer.dbHandler;
+import com.Pharmacy.Project.DBLayer.mysqlDB;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -29,4 +33,13 @@ public class MedicineCatalog {
         return medicineDescriptionMap.get(medicineId);
     }
 
+    public void setMedicineQuantity(int medicineId, int quantity) throws SQLException {
+        for (Medicine medicine : medicineList) {
+            if (medicine.getMedicineId() == medicineId) {
+                medicine.setQuantity(quantity);
+            }
+        }
+        dbHandler db = new mysqlDB();
+        db.updateStock(medicineId, quantity);
+    }
 };

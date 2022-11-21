@@ -32,12 +32,12 @@
         <AnchorPane layoutX="150.0" layoutY="482.0" prefHeight="118.0" prefWidth="600.0" />
         <Text layoutX="179.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Medicines" />
       <ListView fx:id="medList" layoutX="176.0" layoutY="176.0" prefHeight="209.0" prefWidth="475.0" />
-          <Button fx:id="proceedBut1" layoutX="579.0" layoutY="391.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #6bc45a; -fx-background-radius: 15;" text="Add" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+          <Button fx:id="addBtn" layoutX="579.0" layoutY="391.0" mnemonicParsing="false" onAction="#AddStock" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #6bc45a; -fx-background-radius: 15;" text="Add" textAlignment="CENTER" textFill="WHITE" wrapText="true">
               <font>
                   <Font size="13.0" />
               </font>
           </Button>
-      <Button fx:id="retBut1" layoutX="579.0" layoutY="441.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #d73a49; -fx-background-radius: 15;" text="Remove" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="removeBtn" layoutX="579.0" layoutY="441.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #d73a49; -fx-background-radius: 15;" text="Remove" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font size="13.0" />
          </font>

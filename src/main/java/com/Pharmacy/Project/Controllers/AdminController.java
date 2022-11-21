@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -55,8 +56,32 @@ public class AdminController implements Initializable {
         stage.show();
     }
 
-    public void AddStock(int MedicineId, int quantity) throws SQLException {
-        return;
+    public void AddStock(ActionEvent event) throws SQLException, IOException {
+        // print selected item in list view
+        String i = medList.getSelectionModel().getSelectedItem();
+        // parse id from string
+        String[] parts = i.split(" ");
+        String part1 = parts[0];
+        int id = Integer.parseInt(part1);
+        System.out.println(id);
+        TextInputDialog dialog = new TextInputDialog("0");
+        dialog.setTitle("Manage Stock");
+        dialog.setHeaderText("Manage Stock");
+        dialog.setContentText("Enter the new amount of stock :");
+        dialog.showAndWait();
+        String result = dialog.getResult();
+        int stock = Integer.parseInt(result);
+        System.out.println(stock);
+        Pharmacy p = new Pharmacy();
+        p.getMedicineCatalogue().setMedicineQuantity(id,stock);
+        Stage stage = (Stage) addBtn.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/AdminPage.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+
+
+
+
     }
     public void RemoveStock(int MedicineId, int quantity) throws SQLException {
         return;
@@ -76,20 +101,20 @@ public class AdminController implements Initializable {
                 return;
             }
             ArrayList<Medicine> avlMedicines = pharmacy.getAllMedicines();
+            String header = "MedicineId\tName\tQuantity";
+            medList.getItems().add(header);
             for (Medicine medicine : avlMedicines) {
                 int medicineId = medicine.getMedicineId();
                 int quantity = medicine.getQuantity();
-                String Display = "Medicine ID: " + medicineId + " Quantity: " + quantity;
+                String Display = String.valueOf(medicineId);
                 MedicineCatalog medicineCatalog = new MedicineCatalog();
                 medicineCatalog = pharmacy.getMedicineCatalogue();
                 MedicineDescription medicineDescription = medicineCatalog.getMedicineDescription(medicineId);
                 if(medicineDescription != null){
                     String medicineName = medicineDescription.getMedicineName();
-                    Display = Display + " Medicine Name: " + medicineName;
+                    Display = Display + "  \t  \t" + medicineName;
                 }
-
-
-
+                Display = Display + "  \t  \t " + quantity;
                 medList.getItems().add(Display);
             }
 

@@ -166,4 +166,13 @@ public class mysqlDB extends dbHandler {
         return medicineCatalog;
     }
 
+    @Override
+    public void updateStock(int MedicineId, int Quantity) throws SQLException {
+        connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        String query = "UPDATE Medicine SET Quantity = " + Quantity + " WHERE MedicineId = " + MedicineId;
+        System.out.println(query);
+        statement.executeUpdate(query);
+    }
+
 }
