@@ -1,6 +1,8 @@
 package com.Pharmacy.Project.Controllers;
 
 import com.Pharmacy.Project.Medicine;
+import com.Pharmacy.Project.MedicineCatalog;
+import com.Pharmacy.Project.MedicineDescription;
 import com.Pharmacy.Project.Pharmacy;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -62,7 +64,12 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Pharmacy pharmacy = new Pharmacy();
+        Pharmacy pharmacy = null;
+        try {
+            pharmacy = new Pharmacy();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         try {
             // if medList is NULL then it returns
             if (medList == null) {
@@ -73,6 +80,16 @@ public class AdminController implements Initializable {
                 int medicineId = medicine.getMedicineId();
                 int quantity = medicine.getQuantity();
                 String Display = "Medicine ID: " + medicineId + " Quantity: " + quantity;
+                MedicineCatalog medicineCatalog = new MedicineCatalog();
+                medicineCatalog = pharmacy.getMedicineCatalogue();
+                MedicineDescription medicineDescription = medicineCatalog.getMedicineDescription(medicineId);
+                if(medicineDescription != null){
+                    String medicineName = medicineDescription.getMedicineName();
+                    Display = Display + " Medicine Name: " + medicineName;
+                }
+
+
+
                 medList.getItems().add(Display);
             }
 

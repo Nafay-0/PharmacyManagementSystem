@@ -36,8 +36,8 @@ public class LoginController implements Initializable {
 
     Pharmacy pharmacy = new Pharmacy();
 
-
-
+    public LoginController() throws SQLException {
+    }
 
 
     public boolean isUserValid(String username, String password,String role) throws SQLException {

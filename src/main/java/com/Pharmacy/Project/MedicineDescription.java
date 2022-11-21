@@ -4,8 +4,9 @@ public class MedicineDescription {
     private int MedicineId;
     private String MedicineName;
     private String MedicineDescription;
-    private String Manufacturer;
+    private String Company;
 
+    double price;
     public int getMedicineId() {
         return MedicineId;
     }
@@ -24,11 +25,19 @@ public class MedicineDescription {
     public void setMedicineDescription(String medicineDescription) {
         MedicineDescription = medicineDescription;
     }
-    public String getManufacturer() {
-        return Manufacturer;
+    public String getCompany() {
+        return Company;
     }
-    public void setManufacturer(String manufacturer) {
-        Manufacturer = manufacturer;
+    public void setCompany(String company) {
+        Company = company;
     }
 
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }

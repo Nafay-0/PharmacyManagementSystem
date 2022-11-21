@@ -25,5 +25,8 @@ public class MedicineCatalog {
         return medicineList;
     }
 
+    public MedicineDescription getMedicineDescription(int medicineId) {
+        return medicineDescriptionMap.get(medicineId);
+    }
 
 };

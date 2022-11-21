@@ -13,13 +13,16 @@ public class Pharmacy {
 
     Ledger ledger;
     OrderRecord orderRecord;
-    Catalogue medicineCatalogue;
+    MedicineCatalog medicineCatalogue;
     ArrayList<Supplier> supplierList;
 
     dbHandler db;
 
-    public Pharmacy(){
+    public Pharmacy() throws SQLException {
+
         db = new mysqlDB();
+        medicineCatalogue = new MedicineCatalog();
+        medicineCatalogue = db.getMedicineCatalog();
     }
 
     public Pharmacy(String name, String address, String phone) {
@@ -28,7 +31,7 @@ public class Pharmacy {
         this.phone = phone;
         this.ledger = new Ledger();
         this.orderRecord = new OrderRecord();
-        this.medicineCatalogue = new Catalogue();
+        this.medicineCatalogue = new MedicineCatalog();
         this.supplierList = new ArrayList<Supplier>();
         db = new mysqlDB();
     }
@@ -74,13 +77,6 @@ public class Pharmacy {
         this.orderRecord = orderRecord;
     }
 
-    public Catalogue getMedicineCatalogue() {
-        return medicineCatalogue;
-    }
-
-    public void setMedicineCatalogue(Catalogue medicineCatalogue) {
-        this.medicineCatalogue = medicineCatalogue;
-    }
 
     public ArrayList<Supplier> getSupplierList() {
         return supplierList;
@@ -103,5 +99,13 @@ public class Pharmacy {
 
     public void setDb(dbHandler db) {
         this.db = db;
+    }
+
+    public MedicineCatalog getMedicineCatalogue() {
+        return medicineCatalogue;
+    }
+
+    public void setMedicineCatalogue(MedicineCatalog medicineCatalogue) {
+        this.medicineCatalogue = medicineCatalogue;
     }
 }

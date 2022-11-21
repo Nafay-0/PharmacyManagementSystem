@@ -85,4 +85,9 @@ public class FileDb extends dbHandler {
     public ArrayList<Medicine> getAllMedicines() {
         return null;
     }
+
+    @Override
+    public MedicineCatalog getMedicineCatalog() throws SQLException {
+        return null;
+    }
 }

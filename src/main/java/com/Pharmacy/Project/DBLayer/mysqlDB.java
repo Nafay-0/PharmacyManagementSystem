@@ -127,4 +127,43 @@ public class mysqlDB extends dbHandler {
         return medicines;
     }
 
+    @Override
+    public MedicineCatalog getMedicineCatalog() throws SQLException {
+        ArrayList<Medicine> medicines = getAllMedicines();
+        connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        String query = "SELECT * FROM MedicineDescription";
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
+        // check if result set is empty
+        if (!resultSet.isBeforeFirst()) {
+           System.out.println("No data");
+        }
+        MedicineCatalog medicineCatalog = new MedicineCatalog();
+        // get all medicines first
+
+        // get all medicine descriptions
+        while (resultSet.next()) {
+            MedicineDescription medicineDescription = new MedicineDescription();
+            medicineDescription.setMedicineId(resultSet.getInt("MedicineId"));
+            medicineDescription.setMedicineName(resultSet.getString("MedicineName"));
+            medicineDescription.setPrice(resultSet.getDouble("price"));
+            medicineDescription.setCompany(resultSet.getString("Company"));
+            Medicine m = new Medicine();
+            for (Medicine medicine : medicines) {
+                if (medicine.getMedicineId() == medicineDescription.getMedicineId()) {
+                    m.setQuantity(medicine.getQuantity());
+                    m.setMedicineId(medicine.getMedicineId());
+                }
+            }
+            medicineCatalog.addMedicine(m, medicineDescription);
+        }
+        // print all the medicines in the catalog
+        System.out.println("medicineCatalog");
+        for (Medicine medicine : medicineCatalog.getMedicineList()) {
+            System.out.println(medicine.getMedicineId() + " " + medicine.getQuantity());
+        }
+        return medicineCatalog;
+    }
+
 }
