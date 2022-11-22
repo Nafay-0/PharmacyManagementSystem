@@ -104,6 +104,9 @@ public class Pharmacy {
     public MedicineCatalog getMedicineCatalogue() {
         return medicineCatalogue;
     }
+    public void saveSale(Sale s) throws SQLException {
+        db.insertSales(s);
+    }
 
     public void setMedicineCatalogue(MedicineCatalog medicineCatalogue) {
         this.medicineCatalogue = medicineCatalogue;

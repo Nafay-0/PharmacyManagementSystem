@@ -40,9 +40,34 @@ public class mysqlDB extends dbHandler {
     }
 
     @Override
-    void insertSales(Sale S) {
-
+    public void insertSales(Sale S) {
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            statement = connection.createStatement();
+           // sale table  = TotalPrice, SaleDate, SaleStatus
+            Date date = new Date(System.currentTimeMillis());
+            String query = "INSERT INTO Sale (TotalPrice, SaleDate, SaleStatus) VALUES (" + S.getTotalPrice() + ", '" +date + "', " + S.isSaleStatus() + ")";
+            System.out.println(query);
+            statement.executeUpdate(query);
+            // saleItem table = medicineId,quantity,price,SaleId
+            query = "SELECT SaleId FROM Sale WHERE SaleDate = '" + date + "'";
+            System.out.println(query);
+            resultSet = statement.executeQuery(query);
+            int SaleId = 0;
+            if (resultSet.next()) {
+                SaleId = resultSet.getInt("SaleId");
+            }
+            for (SaleLineItem SI : S.getSaleLineItems()) {
+                query = "INSERT INTO SaleLineItem (medicineId,quantity,price,SaleId) VALUES (" + SI.getMedicine().getMedicineId() + ", " + SI.getQuantity() + ", " + SI.getPrice() + ", " + SaleId + ")";
+                System.out.println(query);
+                statement.executeUpdate(query);
+            }
+            } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
+
+
 
     @Override
     void addManager(Manager M) {

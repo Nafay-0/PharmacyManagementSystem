@@ -22,7 +22,7 @@ public class FileDb extends dbHandler {
     }
 
     @Override
-    void insertSales(Sale S) {
+    public void insertSales(Sale S) {
 
     }
 

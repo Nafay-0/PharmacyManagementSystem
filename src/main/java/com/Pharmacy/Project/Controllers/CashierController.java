@@ -84,6 +84,8 @@ public class CashierController implements Initializable {
             alert.setContentText("Change : " + (paidAmount - total));
             alert.showAndWait();
             currentSale.setSaleStatus(false);
+            Pharmacy pharmacy = new Pharmacy();
+            pharmacy.saveSale(currentSale);
             //dbHandler dbHandler = new dbHandler();
            // dbHandler.addSale(currentSale);
             Stage stage = (Stage) payBtn.getScene().getWindow();

@@ -22,7 +22,7 @@ public abstract class dbHandler {
     }
     public abstract   Boolean verifyManager(String EmployeeName, String EmployeePassword) throws SQLException;
     public abstract boolean verifyCashier(String EmployeeName, String EmployeePassword) throws SQLException;
-    abstract void insertSales(Sale S);
+    public abstract void insertSales(Sale S);
     abstract void addManager(Manager M);
     abstract void addCashier(Cashier c);
     abstract void addMedicine(Medicine m);

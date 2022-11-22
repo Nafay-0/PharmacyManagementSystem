@@ -98,5 +98,7 @@ public class Sale {
                 ", SaleLineItems=" + SaleLineItems +
                 '}';
     }
+
+
 };
 
