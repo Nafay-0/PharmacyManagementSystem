@@ -3,9 +3,9 @@ package com.Pharmacy.Project;
 public class SaleLineItem {
     private Medicine medicine;
     private int quantity;
-    private int price;
+    private double price;
 
-    public SaleLineItem(Medicine medicine, int quantity, int price) {
+    public SaleLineItem(Medicine medicine, int quantity, double price) {
         this.medicine = medicine;
         this.quantity = quantity;
         this.price = price;
@@ -27,11 +27,11 @@ public class SaleLineItem {
         this.quantity = quantity;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

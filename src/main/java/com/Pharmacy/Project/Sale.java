@@ -6,11 +6,14 @@ import java.util.Date;
 public class Sale {
     int SaleId;
     String CustomerName;
-    int TotalPrice;
+    double TotalPrice;
     Date SaleDate;
     boolean SaleStatus;
     ArrayList<SaleLineItem> SaleLineItems;
 
+    public Sale(){
+        SaleLineItems = new ArrayList<>();
+    }
     public Sale(int saleId, String customerName, int totalPrice, Date saleDate, boolean saleStatus, ArrayList<SaleLineItem> saleLineItems) {
         SaleId = saleId;
         CustomerName = customerName;
@@ -18,6 +21,11 @@ public class Sale {
         SaleDate = saleDate;
         SaleStatus = saleStatus;
         SaleLineItems = saleLineItems;
+    }
+    public void addSaleLineItem(Medicine M, int quantity, double price)
+    {
+        SaleLineItem saleLineItem = new SaleLineItem(M, quantity, price);
+        SaleLineItems.add(saleLineItem);
     }
 
     public Sale(int saleId, String customerName, int totalPrice, Date saleDate, boolean saleStatus) {
@@ -28,6 +36,8 @@ public class Sale {
         SaleStatus = saleStatus;
         SaleLineItems = new ArrayList<>();
     }
+
+
 
     public int getSaleId() {
         return SaleId;
@@ -45,11 +55,11 @@ public class Sale {
         CustomerName = customerName;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
         return TotalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         TotalPrice = totalPrice;
     }
 

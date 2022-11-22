@@ -10,24 +10,34 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Pharmacy.Project.Controllers.CashierController">
     <top>
-        <AnchorPane prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="600.0" prefWidth="750.0" BorderPane.alignment="CENTER">
             <children>
-                <VBox prefHeight="600.0" prefWidth="149.0" style="-fx-background-color: #6872EC;" />
-                <TextField layoutX="185.0" layoutY="88.0" promptText="Medicine ID" />
-                <TextField layoutX="381.0" layoutY="88.0" promptText="Qty" />
-                <Button layoutX="381.0" layoutY="120.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="102.0" text="Add" />
+                <VBox prefHeight="600.0" prefWidth="142.0" style="-fx-background-color: #8fbac2;">
+               <children>
+                  <Button fx:id="retBut" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #d73a49; -fx-background-radius: 15;" text="Back" textAlignment="CENTER" textFill="WHITE" translateX="10.0" translateY="10.0" wrapText="true">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+               </children></VBox>
+                <TextField fx:id="medId" layoutX="185.0" layoutY="75.0" promptText="Medicine ID" />
+                <TextField fx:id="quanField" layoutX="381.0" layoutY="75.0" promptText="Qty" />
                 <CheckBox layoutX="185.0" layoutY="126.0" mnemonicParsing="false" text="CashPayment" />
-                <ListView layoutX="185.0" layoutY="186.0" prefHeight="305.0" prefWidth="374.0" />
-                <Button layoutX="185.0" layoutY="161.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="374.0" text="click to view available medicine" />
-                <Label layoutX="193.0" layoutY="526.0" prefHeight="17.0" prefWidth="369.0" text="Total Amount ">
+                <ListView fx:id="saleList" layoutX="185.0" layoutY="186.0" prefHeight="305.0" prefWidth="433.0" />
+                <Button layoutX="188.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="374.0" text="click to view available medicine" />
+                <Label fx:id="totalLabel" layoutX="185.0" layoutY="526.0" prefHeight="26.0" prefWidth="275.0" text="Total Amount ">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Label>
-                <Button layoutX="491.0" layoutY="526.0" mnemonicParsing="false" text="Click to Pay" />
-            <Button fx:id="retBut" layoutX="398.0" layoutY="523.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #d73a49; -fx-background-radius: 15;" text="Back" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Button fx:id="addSale" layoutX="570.0" layoutY="72.0" mnemonicParsing="false" onAction="#addSale" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #6bc45a; -fx-background-radius: 15;" text="Add" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="payBtn" layoutX="520.0" layoutY="520.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" onAction="#payAmount" style="-fx-background-color: #009ee2; -fx-background-radius: 15;" text="Pay" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="13.0" />
                </font>

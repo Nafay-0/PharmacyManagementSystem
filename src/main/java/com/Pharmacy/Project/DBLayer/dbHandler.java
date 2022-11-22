@@ -7,6 +7,19 @@ import java.util.ArrayList;
 
 // generic db class; can be used for any db mysql, oracle, etc
 public abstract class dbHandler {
+
+    static private dbHandler instance = null;
+    public static dbHandler getInstance(String dbType) {
+        if (instance == null) {
+            if (dbType.equals("mysql")) {
+                instance = new mysqlDB();
+            }
+            else{
+                instance = new FileDb();
+            }
+        }
+        return instance;
+    }
     public abstract   Boolean verifyManager(String EmployeeName, String EmployeePassword) throws SQLException;
     public abstract boolean verifyCashier(String EmployeeName, String EmployeePassword) throws SQLException;
     abstract void insertSales(Sale S);

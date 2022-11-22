@@ -75,7 +75,7 @@ public class AdminController implements Initializable {
         Pharmacy p = new Pharmacy();
         p.getMedicineCatalogue().setMedicineQuantity(id,stock);
         Stage stage = (Stage) addBtn.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/AdminPage.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/StockUpdatePage.fxml")));
         stage.setScene(new Scene(root));
         stage.show();
 
