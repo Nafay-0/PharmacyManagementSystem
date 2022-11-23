@@ -15,6 +15,13 @@ public class Supplier {
         this.SupplierEmail = SupplierEmail;
     }
 
+    public Supplier() {
+        this.SupplierName = "";
+        this.SupplierAddress = "";
+        this.SupplierPhone = "";
+        this.SupplierEmail = "";
+    }
+
     public int getSupplierId() {
         return SupplierId;
     }

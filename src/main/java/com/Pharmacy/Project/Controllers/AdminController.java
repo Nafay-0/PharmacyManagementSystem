@@ -35,11 +35,19 @@ public class AdminController implements Initializable {
     private ListView<String>medList;
     @FXML
     private Button checkStock;
+    @FXML
+    private Button orderBtn;
 
 
     public void showReport(ActionEvent event) throws IOException {
         Stage stage = (Stage) reportBtn.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/viewReport.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    public void orderMedicines(ActionEvent event) throws IOException {
+        Stage stage = (Stage) orderBtn.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/orderMedicines.fxml")));
         stage.setScene(new Scene(root));
         stage.show();
     }
@@ -78,10 +86,6 @@ public class AdminController implements Initializable {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/StockUpdatePage.fxml")));
         stage.setScene(new Scene(root));
         stage.show();
-
-
-
-
     }
     public void RemoveStock(int MedicineId, int quantity) throws SQLException {
         return;

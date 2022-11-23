@@ -20,6 +20,18 @@ public class Catalogue {
         return null;
     }
 
+   public ArrayList<Medicine>  getUnavailableMedicines() {
+        ArrayList<Medicine> unavailableMedicines = new ArrayList<Medicine>();
+        for (Medicine medicine : medicines) {
+            if (medicine.getQuantity() == 0) {
+                unavailableMedicines.add(medicine);
+            }
+        }
+        return unavailableMedicines;
+    }
+
+
+
     public ArrayList<Medicine> getMedicines() {
         return medicines;
     }

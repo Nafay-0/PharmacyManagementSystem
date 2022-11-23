@@ -72,6 +72,11 @@ public class FileDb extends dbHandler {
     }
 
     @Override
+    public ArrayList<Supplier> getSupplierforMedicine(Medicine m) {
+        return null;
+    }
+
+    @Override
     ArrayList<Sale> getSales() {
         return null;
     }

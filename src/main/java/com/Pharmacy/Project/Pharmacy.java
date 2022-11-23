@@ -15,14 +15,30 @@ public class Pharmacy {
     OrderRecord orderRecord;
     MedicineCatalog medicineCatalogue;
     ArrayList<Supplier> supplierList;
-
+    OrderRecord orderList;
     dbHandler db;
 
+    static Pharmacy instance = null;
     public Pharmacy() throws SQLException {
 
         db = new mysqlDB();
         medicineCatalogue = new MedicineCatalog();
         medicineCatalogue = db.getMedicineCatalog();
+        orderList = new OrderRecord();
+    }
+
+    public static Pharmacy getInstance() throws SQLException {
+        if (instance == null) {
+            instance = new Pharmacy();
+        }
+        return instance;
+    }
+
+    public OrderRecord getOrderList() {
+        return orderList;
+    }
+    public void setOrderList(OrderRecord orderList) {
+        this.orderList = orderList;
     }
 
     public Pharmacy(String name, String address, String phone) {
@@ -48,6 +64,7 @@ public class Pharmacy {
     public String getAddress() {
         return address;
     }
+
 
     public void setAddress(String address) {
         this.address = address;
@@ -107,7 +124,13 @@ public class Pharmacy {
     public void saveSale(Sale s) throws SQLException {
         db.insertSales(s);
     }
-
+    public void addMedicineOrder(MedicineOrder medicineOrder) throws SQLException {
+        orderRecord.addOrder(medicineOrder);
+    }
+    public ArrayList<Supplier> getSupplierListFromDB(Medicine M) throws SQLException {
+        supplierList = db.getSupplierforMedicine(M);
+        return supplierList;
+    }
     public void setMedicineCatalogue(MedicineCatalog medicineCatalogue) {
         this.medicineCatalogue = medicineCatalogue;
     }

@@ -42,4 +42,14 @@ public class MedicineCatalog {
         dbHandler db = new mysqlDB();
         db.updateStock(medicineId, quantity);
     }
+    public ArrayList<Medicine> getUnavailableMedicine() {
+        ArrayList<Medicine> UnavlMed = new ArrayList<Medicine>();
+        for (Medicine medicine : medicineList) {
+            if (medicine.getQuantity() == 0) {
+                UnavlMed.add(medicine);
+            }
+        }
+        return UnavlMed;
+    }
+
 };

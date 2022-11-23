@@ -32,6 +32,8 @@ public abstract class dbHandler {
     abstract ArrayList<Manager> getManager();
     abstract ArrayList<Cashier> getCashier();
     abstract ArrayList<Supplier> getSupplier();
+
+    public abstract ArrayList<Supplier> getSupplierforMedicine(Medicine m) throws SQLException;
     abstract ArrayList<Sale> getSales();
     abstract ArrayList<MedicineOrder> getOrders();
 

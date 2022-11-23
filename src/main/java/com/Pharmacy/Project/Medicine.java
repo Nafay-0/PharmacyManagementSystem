@@ -44,4 +44,8 @@ public class Medicine {
         this.quantity = quantity;
     }
 
+    public ArrayList<Supplier> getSupplierID() {
+        return suppliers;
+    }
+
 }

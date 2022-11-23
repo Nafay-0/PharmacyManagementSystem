@@ -8,6 +8,9 @@ public class OrderRecord {
     public OrderRecord() {
         orderList = new ArrayList<MedicineOrder>();
     }
+    public void addOrder(MedicineOrder order){
+        orderList.add(order);
+    }
 
 
 }

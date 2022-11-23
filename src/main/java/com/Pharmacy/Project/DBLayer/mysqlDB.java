@@ -115,6 +115,35 @@ public class mysqlDB extends dbHandler {
     }
 
     @Override
+    public ArrayList<Supplier> getSupplierforMedicine(Medicine m) throws SQLException {
+        // MedicineSuppliers table = MedicineId, SupplierId
+        // Supplier table = SupplierId, SupplierName, SupplierAddress, SupplierPhone,SupplierEmail
+        connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        String query = "SELECT * FROM MedicineSuppliers WHERE MedicineId = " + m.getMedicineId();
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
+        ArrayList<Supplier> suppliers = new ArrayList<Supplier>();
+        while (resultSet.next()) {
+            int SupplierId = resultSet.getInt("SupplierId");
+            query = "SELECT * FROM Supplier WHERE SupplierId = " + SupplierId;
+            System.out.println(query);
+            Statement statement2 = connection.createStatement();
+            ResultSet resultSet2 = statement2.executeQuery(query);
+            if (resultSet2.next()) {
+                Supplier s = new Supplier();
+                s.setSupplierId(resultSet2.getInt("SupplierId"));
+                s.setSupplierName(resultSet2.getString("SupplierName"));
+                s.setSupplierAddress(resultSet2.getString("SupplierAddress"));
+                s.setSupplierPhone(resultSet2.getString("SupplierPhone"));
+                s.setSupplierEmail(resultSet2.getString("SupplierEmail"));
+                suppliers.add(s);
+            }
+        }
+        return suppliers;
+    }
+
+    @Override
     ArrayList<Sale> getSales() {
         return null;
     }
