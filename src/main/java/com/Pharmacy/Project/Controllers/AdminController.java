@@ -91,6 +91,7 @@ public class AdminController implements Initializable {
         return;
     }
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Pharmacy pharmacy = null;

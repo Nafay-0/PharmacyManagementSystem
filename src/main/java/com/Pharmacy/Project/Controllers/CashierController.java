@@ -37,6 +37,8 @@ public class CashierController implements Initializable {
     private Label totalLabel;
     @FXML
     private Label totalCost1;
+    @FXML
+    private Button handleReturns;
 
     Sale currentSale;
 
@@ -113,6 +115,15 @@ public class CashierController implements Initializable {
         // redirect to startSale page
         Stage stage = (Stage) saleBtn.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/startSale.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    public void handleReturnFunction(ActionEvent event) throws IOException {
+        Stage stage = (Stage)handleReturns .getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Pharmacy/Project/handleReturns.fxml"));
+        Parent root = (Parent) loader.load();
+        ReturnsController controller = loader.getController();
         stage.setScene(new Scene(root));
         stage.show();
     }
