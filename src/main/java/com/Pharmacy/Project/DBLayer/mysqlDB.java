@@ -292,4 +292,23 @@ public class mysqlDB extends dbHandler {
         return sale;
     }
 
+    @Override
+    public void updateSale(Sale s) throws SQLException {
+        // Sale Table SaleId, TotalPrice, SaleDate, SaleStatus
+        connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        String query = "UPDATE Sale SET TotalPrice = " + s.getTotalPrice() + ", SaleDate = '" + s.getSaleDate() + "', SaleStatus = '" + 0 + "' WHERE SaleId = " + s.getSaleId();
+        System.out.println(query);
+        statement.executeUpdate(query);
+        // SaleLineItem Table itemID,medicineId,quantity,price,SaleId
+        //UPDATE ALL sale line items for sale
+        for (SaleLineItem saleItem : s.getSaleLineItems()) {
+            query = "UPDATE SaleLineItem SET Quantity = " + saleItem.getQuantity() + ", Price = " + saleItem.getPrice() + " WHERE SaleId = " + s.getSaleId() + " AND MedicineId = " + saleItem.getMedicine().getMedicineId();
+            System.out.println(query);
+            statement.executeUpdate(query);
+        }
+
+
+    }
+
 }

@@ -41,6 +41,13 @@ public class SaleLineItem {
         this.price = price;
     }
 
+    public void updateQuantity(int updatedQuantity) {
+        double pricePerItem = this.price / this.quantity;
+        this.quantity = updatedQuantity;
+        this.price = pricePerItem * this.quantity;
+
+    }
+
     @Override
     public String toString() {
         return "SaleLineItem{" +

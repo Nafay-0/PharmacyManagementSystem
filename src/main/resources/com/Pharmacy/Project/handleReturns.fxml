@@ -24,12 +24,12 @@
                             </Button>
                         </children></VBox>
                     <ListView fx:id="saleView" layoutX="185.0" layoutY="146.0" prefHeight="345.0" prefWidth="433.0" />
-                    <Label layoutX="185.0" layoutY="526.0" prefHeight="26.0" prefWidth="275.0" text="Refund : ">
+                    <Label fx:id="refundAmnt" layoutX="185.0" layoutY="526.0" prefHeight="26.0" prefWidth="275.0" text="Refund : ">
                         <font>
                             <Font size="20.0" />
                         </font>
                     </Label>
-                    <Button layoutX="520.0" layoutY="520.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #009ee2; -fx-background-radius: 15;" text="Pay" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                    <Button layoutX="520.0" layoutY="520.0" mnemonicParsing="false" onAction="#endReturn" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #009ee2; -fx-background-radius: 15;" text="Pay" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                         <font>
                             <Font size="13.0" />
                         </font>

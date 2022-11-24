@@ -87,6 +87,14 @@ public class Sale {
         SaleLineItems = saleLineItems;
     }
 
+    public double getTotalPriceOfSale()
+    {
+        double totalPrice = 0;
+        for (SaleLineItem saleLineItem : SaleLineItems) {
+            totalPrice += saleLineItem.getPrice();
+        }
+        return totalPrice;
+    }
     @Override
     public String toString() {
         return "Sale{" +

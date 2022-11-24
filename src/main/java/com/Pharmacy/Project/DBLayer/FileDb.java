@@ -109,4 +109,9 @@ public class FileDb extends dbHandler {
     public Sale getSalefromReceipt(int receiptId) throws SQLException {
         return null;
     }
+
+    @Override
+    public void updateSale(Sale s) throws SQLException {
+
+    }
 }

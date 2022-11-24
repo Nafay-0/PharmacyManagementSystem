@@ -136,7 +136,9 @@ public class Pharmacy {
     public Sale getSale(int r) throws SQLException {
         Sale s  = db.getSalefromReceipt(r);
         return s;
-
+    }
+    public void updateSale(Sale s) throws SQLException {
+        db.updateSale(s);
     }
 
     public void setMedicineCatalogue(MedicineCatalog medicineCatalogue) {

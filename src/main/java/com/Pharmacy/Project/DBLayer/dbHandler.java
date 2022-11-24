@@ -45,4 +45,6 @@ public abstract class dbHandler {
 
     public abstract void writeReceipt(Receipt r) throws SQLException;
     public abstract Sale getSalefromReceipt(int receiptId) throws SQLException;
+
+    public abstract void updateSale(Sale s) throws SQLException;
 }

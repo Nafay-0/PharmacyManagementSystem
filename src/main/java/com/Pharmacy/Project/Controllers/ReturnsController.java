@@ -25,10 +25,24 @@ public class ReturnsController implements Initializable {
     private TextField Rid;
     @FXML
     private ListView<String> saleView;
+    @FXML
+    private Label refundAmnt;
+
+
+    public void endReturn(ActionEvent actionEvent)throws SQLException {
+        pharmacy.updateSale(currentSale);
+        // show alert that return is successfully complete
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Return");
+        alert.setHeaderText("Return is successfully complete");
+        alert.setContentText("Return is successfully complete");
+        alert.showAndWait();
+
+    }
 
     public void loadSale(ActionEvent actionEvent) throws SQLException {
-        // clear the list view
         saleView.getItems().clear();
+        refundAmnt.setText("Refund Amount : " + RefundAmount);
         int saleId = currentSale.getSaleId();
         System.out.println("Fetched : " + saleId);
         saleView.getItems().add("Sale Id : " + saleId);
@@ -46,7 +60,6 @@ public class ReturnsController implements Initializable {
 
         }
     }
-
     public void removeItem(ActionEvent actionEvent) throws SQLException {
         // get the selected item
         String selectedItem = saleView.getSelectionModel().getSelectedItem();
@@ -85,15 +98,18 @@ public class ReturnsController implements Initializable {
             // If quantity == quantity in the sale
             if(quantity==currentSale.getSaleLineItems().get(index).getQuantity()){
                 // remove the sale line item
+                RefundAmount += currentSale.getSaleLineItems().get(index).getPrice() * quantity;
                 currentSale.getSaleLineItems().remove(index);
             }
             else{
-                // else update the quantity
+
                 currentSale.getSaleLineItems().get(index).setQuantity(currentSale.getSaleLineItems().get(index).getQuantity()-quantity);
+                RefundAmount += currentSale.getSaleLineItems().get(index).getPrice() * quantity;
             }
+            currentSale.setTotalPrice(currentSale.getTotalPrice()-RefundAmount);
+            System.out.println("Refund Amount : " + RefundAmount);
+            System.out.println("Updated Sale Total : " + currentSale.getTotalPrice());
             loadSale(actionEvent);
-
-
         }
 
     }
@@ -116,7 +132,6 @@ public class ReturnsController implements Initializable {
             saleItem += "Quantity : " + currentSale.getSaleLineItems().get(i).getQuantity() + "\t";
             saleItem += "Price : " + currentSale.getSaleLineItems().get(i).getPrice() + "\t";
             saleView.getItems().add(saleItem);
-
         }
 
 
@@ -130,6 +145,7 @@ public class ReturnsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         RefundAmount = 0;
+        refundAmnt.setText("Refund Amount : " + RefundAmount);
         System.out.println("Returns Controller");
         System.out.println(SaleId);
         Text saleIdText = new Text();
