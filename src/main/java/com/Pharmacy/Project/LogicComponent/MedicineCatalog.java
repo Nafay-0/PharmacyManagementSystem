@@ -1,4 +1,4 @@
-package com.Pharmacy.Project;
+package com.Pharmacy.Project.LogicComponent;
 
 import com.Pharmacy.Project.DBLayer.dbHandler;
 import com.Pharmacy.Project.DBLayer.mysqlDB;

@@ -1,6 +1,6 @@
 package com.Pharmacy.Project.Controllers;
 
-import com.Pharmacy.Project.*;
+import com.Pharmacy.Project.LogicComponent.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

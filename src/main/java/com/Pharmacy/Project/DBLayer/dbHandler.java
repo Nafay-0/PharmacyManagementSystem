@@ -1,6 +1,6 @@
 package com.Pharmacy.Project.DBLayer;
 
-import com.Pharmacy.Project.*;
+import com.Pharmacy.Project.LogicComponent.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -42,4 +42,7 @@ public abstract class dbHandler {
     public abstract MedicineCatalog getMedicineCatalog() throws SQLException;
 
     public abstract void updateStock(int MedicineId, int Quantity) throws SQLException;
+
+    public abstract void writeReceipt(Receipt r) throws SQLException;
+    public abstract Sale getSalefromReceipt(int receiptId) throws SQLException;
 }

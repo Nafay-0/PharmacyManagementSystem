@@ -1,7 +1,6 @@
 package com.Pharmacy.Project.Controllers;
 
-import com.Pharmacy.Project.*;
-import com.Pharmacy.Project.DBLayer.dbHandler;
+import com.Pharmacy.Project.LogicComponent.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -86,8 +85,10 @@ public class CashierController implements Initializable {
             alert.setContentText("Change : " + (paidAmount - total));
             alert.showAndWait();
             currentSale.setSaleStatus(false);
-            Pharmacy pharmacy = new Pharmacy();
+            Pharmacy pharmacy =  Pharmacy.getInstance();
             pharmacy.saveSale(currentSale);
+            Receipt receipt = new Receipt();
+            receipt.setSaleID(currentSale.getSaleId());
             //dbHandler dbHandler = new dbHandler();
            // dbHandler.addSale(currentSale);
             Stage stage = (Stage) payBtn.getScene().getWindow();

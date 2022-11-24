@@ -1,4 +1,4 @@
-package com.Pharmacy.Project;
+package com.Pharmacy.Project.LogicComponent;
 
 public class Supplier {
     int SupplierId;

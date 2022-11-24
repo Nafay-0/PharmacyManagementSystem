@@ -1,5 +1,5 @@
 package com.Pharmacy.Project.DBLayer;
-import com.Pharmacy.Project.*;
+import com.Pharmacy.Project.LogicComponent.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -62,6 +62,11 @@ public class mysqlDB extends dbHandler {
                 System.out.println(query);
                 statement.executeUpdate(query);
             }
+            Receipt R = new Receipt();
+            R.setSaleID(SaleId);
+            this.writeReceipt(R);
+
+
             } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
@@ -227,6 +232,64 @@ public class mysqlDB extends dbHandler {
         String query = "UPDATE Medicine SET Quantity = " + Quantity + " WHERE MedicineId = " + MedicineId;
         System.out.println(query);
         statement.executeUpdate(query);
+    }
+
+    @Override
+    public void writeReceipt(Receipt r) throws SQLException {
+        connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        // Receipt table = ReceiptId, SaleID
+        String query = "INSERT INTO Receipt (SaleId) VALUES (" + r.getSaleID() + ")";
+        System.out.println(query);
+        statement.executeUpdate(query);
+
+
+    }
+
+    @Override
+    public Sale getSalefromReceipt(int receiptId) throws SQLException {
+        connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        String query = "SELECT * FROM Receipt WHERE ReceiptId = " + receiptId;
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
+        Sale sale = new Sale();
+        if (resultSet.next()) {
+            sale.setSaleId(resultSet.getInt("SaleId"));
+        }
+        // get Sale from Sale Table
+        // Sale Table SaleId, TotalPrice, SaleDate, SaleStatus
+        query = "SELECT * FROM Sale WHERE SaleId = " + sale.getSaleId();
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
+        if (resultSet.next()) {
+            sale.setTotalPrice(resultSet.getDouble("TotalPrice"));
+            sale.setSaleDate(resultSet.getDate("SaleDate"));
+            sale.setSaleStatus(Boolean.parseBoolean(resultSet.getString("SaleStatus")));
+
+        }
+        // get all SaleItems from SaleLineItem Table
+        // SaleLineItem Table itemID,medicineID,quantity,price,SaleId
+        ArrayList<SaleLineItem> saleItems = new ArrayList<>();
+        query = "SELECT * FROM SaleLineItem WHERE SaleId = " + sale.getSaleId();
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
+        while (resultSet.next()) {
+            SaleLineItem saleItem = new SaleLineItem();
+            //saleItem.set(resultSet.getInt("ItemId"));
+            int medId = resultSet.getInt("MedicineId");
+
+            Medicine M = new Medicine();
+            M.setMedicineId(medId);
+            saleItem.setMedicine(M);
+            saleItem.setQuantity(resultSet.getInt("Quantity"));
+            saleItem.setPrice(resultSet.getDouble("Price"));
+            saleItems.add(saleItem);
+        }
+        sale.setSaleLineItems(saleItems);
+
+
+        return sale;
     }
 
 }

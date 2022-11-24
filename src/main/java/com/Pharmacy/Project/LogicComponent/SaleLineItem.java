@@ -1,4 +1,4 @@
-package com.Pharmacy.Project;
+package com.Pharmacy.Project.LogicComponent;
 
 public class SaleLineItem {
     private Medicine medicine;
@@ -9,6 +9,12 @@ public class SaleLineItem {
         this.medicine = medicine;
         this.quantity = quantity;
         this.price = price;
+    }
+
+    public SaleLineItem() {
+        this.medicine = new Medicine();
+        this.quantity = 0;
+        this.price = 0;
     }
 
     public Medicine getMedicine() {

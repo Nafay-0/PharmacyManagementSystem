@@ -1,7 +1,6 @@
 package com.Pharmacy.Project.DBLayer;
 
-import com.Pharmacy.Project.*;
-import com.Pharmacy.Project.DBLayer.dbHandler;
+import com.Pharmacy.Project.LogicComponent.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -99,5 +98,15 @@ public class FileDb extends dbHandler {
     @Override
     public void updateStock(int MedicineId, int Quantity) throws SQLException {
 
+    }
+
+    @Override
+    public void writeReceipt(Receipt r) throws SQLException {
+
+    }
+
+    @Override
+    public Sale getSalefromReceipt(int receiptId) throws SQLException {
+        return null;
     }
 }

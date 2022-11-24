@@ -1,4 +1,4 @@
-package com.Pharmacy.Project;
+package com.Pharmacy.Project.LogicComponent;
 
 import com.Pharmacy.Project.DBLayer.dbHandler;
 import com.Pharmacy.Project.DBLayer.mysqlDB;
@@ -17,6 +17,7 @@ public class Pharmacy {
     ArrayList<Supplier> supplierList;
     OrderRecord orderList;
     dbHandler db;
+    ArrayList<Receipt> receiptList;
 
     static Pharmacy instance = null;
     public Pharmacy() throws SQLException {
@@ -25,6 +26,7 @@ public class Pharmacy {
         medicineCatalogue = new MedicineCatalog();
         medicineCatalogue = db.getMedicineCatalog();
         orderList = new OrderRecord();
+
     }
 
     public static Pharmacy getInstance() throws SQLException {
@@ -131,6 +133,12 @@ public class Pharmacy {
         supplierList = db.getSupplierforMedicine(M);
         return supplierList;
     }
+    public Sale getSale(int r) throws SQLException {
+        Sale s  = db.getSalefromReceipt(r);
+        return s;
+
+    }
+
     public void setMedicineCatalogue(MedicineCatalog medicineCatalogue) {
         this.medicineCatalogue = medicineCatalogue;
     }

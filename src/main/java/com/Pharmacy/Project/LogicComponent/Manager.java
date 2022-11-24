@@ -1,20 +1,21 @@
-package com.Pharmacy.Project;
+package com.Pharmacy.Project.LogicComponent;
 
-public class Cashier {
+public class Manager {
     int EmployeeID;
     String EmployeeName;
     String EmployeeAddress;
     String EmployeePhone;
     String EmployeePassword;
 
-    public Cashier(int employeeID, String employeeName, String employeeAddress, String employeePhone, String employeePassword) {
-        EmployeeID = employeeID;
-        EmployeeName = employeeName;
-        EmployeeAddress = employeeAddress;
-        EmployeePhone = employeePhone;
-        EmployeePassword = employeePassword;
+    //private static Manager instance = null;
+     Manager() {
     }
-
+//    public static Manager getInstance() {
+//        if(instance == null) {
+//            instance = new Manager();
+//        }
+//        return instance;
+//    }
 
     public int getEmployeeID() {
         return EmployeeID;

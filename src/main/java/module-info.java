@@ -12,4 +12,6 @@ module com.example.demo {
     opens com.Pharmacy.Project.Controllers to javafx.fxml;
     exports com.Pharmacy.Project.DBLayer;
     opens com.Pharmacy.Project.DBLayer to javafx.fxml;
+    exports com.Pharmacy.Project.LogicComponent;
+    opens com.Pharmacy.Project.LogicComponent to javafx.fxml;
 }
