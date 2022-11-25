@@ -25,6 +25,7 @@ public abstract class PersistenceHandler {
     abstract void addManager(Manager M);
     abstract void addCashier(Cashier c);
     public abstract void addMedicine(Medicine m, MedicineDescription md);
+    public abstract void removeMedicine(Medicine m);
     abstract void addSupplier(Supplier s);
     abstract void addOrder(MedicineOrder o);
     abstract ArrayList<Medicine> getMedicine();

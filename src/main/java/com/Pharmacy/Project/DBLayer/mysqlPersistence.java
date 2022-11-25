@@ -113,6 +113,24 @@ public class mysqlPersistence extends PersistenceHandler {
 
     }
 
+    @Override
+    public void removeMedicine(Medicine m) {
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            statement = connection.createStatement();
+            // delete from MedicineDescription
+            String query = "DELETE FROM MedicineDescription WHERE MedicineId = " + m.getMedicineId();
+            System.out.println(query);
+            statement.executeUpdate(query);
+            query = "DELETE FROM Medicine WHERE MedicineId = " + m.getMedicineId();
+            System.out.println(query);
+            statement.executeUpdate(query);
+
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+
+    }
 
 
     @Override

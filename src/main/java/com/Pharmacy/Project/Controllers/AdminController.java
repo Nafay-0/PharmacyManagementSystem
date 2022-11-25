@@ -64,6 +64,12 @@ public class AdminController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
+    public void removeMedicine(ActionEvent event) throws IOException {
+        Stage stage = (Stage) reportBtn.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/RemoveMedicine.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     public void ManageStock(ActionEvent event) throws IOException {
         Stage stage = (Stage) reportBtn.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/StockUpdatePage.fxml")));

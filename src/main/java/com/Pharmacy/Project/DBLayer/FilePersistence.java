@@ -40,6 +40,10 @@ public class FilePersistence extends PersistenceHandler {
 
     }
 
+    @Override
+    public void removeMedicine(Medicine m) {
+
+    }
 
 
     @Override

@@ -152,4 +152,8 @@ public class Pharmacy {
         db.addMedicine(medicine, medicineDescription);
 
     }
+
+    public void removeMedicine(Medicine m) {
+        db.removeMedicine(m);
+    }
 }
