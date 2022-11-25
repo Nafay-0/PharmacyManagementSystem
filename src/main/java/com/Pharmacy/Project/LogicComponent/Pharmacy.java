@@ -1,7 +1,8 @@
 package com.Pharmacy.Project.LogicComponent;
 
-import com.Pharmacy.Project.DBLayer.dbHandler;
-import com.Pharmacy.Project.DBLayer.mysqlDB;
+import com.Pharmacy.Project.DBLayer.Factory;
+import com.Pharmacy.Project.DBLayer.PersistenceHandler;
+import com.Pharmacy.Project.DBLayer.mysqlPersistence;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,13 +17,14 @@ public class Pharmacy {
     MedicineCatalog medicineCatalogue;
     ArrayList<Supplier> supplierList;
     OrderRecord orderList;
-    dbHandler db;
+    PersistenceHandler db;
     ArrayList<Receipt> receiptList;
 
     static Pharmacy instance = null;
     private Pharmacy() throws SQLException {
 
-        db = new mysqlDB();
+        Factory factory = Factory.getInstance();
+        db = factory.getDBhandler("mysql");
         medicineCatalogue = new MedicineCatalog();
         medicineCatalogue = db.getMedicineCatalog();
         orderList = new OrderRecord();
@@ -51,7 +53,7 @@ public class Pharmacy {
         this.orderRecord = new OrderRecord();
         this.medicineCatalogue = new MedicineCatalog();
         this.supplierList = new ArrayList<Supplier>();
-        db = new mysqlDB();
+        db = new mysqlPersistence();
     }
 
 
@@ -112,11 +114,11 @@ public class Pharmacy {
     public ArrayList<Medicine>getAllMedicines() throws SQLException {
         return db.getAllMedicines();
     }
-    public dbHandler getDb() {
+    public PersistenceHandler getDb() {
         return db;
     }
 
-    public void setDb(dbHandler db) {
+    public void setDb(PersistenceHandler db) {
         this.db = db;
     }
 

@@ -6,15 +6,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 // generic db class; can be used for any db mysql, oracle, etc
-public abstract class dbHandler {
-    static private dbHandler instance = null;
-    public static dbHandler getInstance(String dbType) {
+public abstract class PersistenceHandler {
+    static private PersistenceHandler instance = null;
+    public static PersistenceHandler getInstance(String dbType) {
         if (instance == null) {
             if (dbType.equals("mysql")) {
-                instance = new mysqlDB();
+                instance = new mysqlPersistence();
             }
             else{
-                instance = new FileDb();
+                instance = new FilePersistence();
             }
         }
         return instance;

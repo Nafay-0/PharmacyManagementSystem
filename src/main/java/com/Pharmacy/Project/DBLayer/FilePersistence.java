@@ -5,7 +5,7 @@ import com.Pharmacy.Project.LogicComponent.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class FileDb extends dbHandler {
+public class FilePersistence extends PersistenceHandler {
     private String path;
 
 

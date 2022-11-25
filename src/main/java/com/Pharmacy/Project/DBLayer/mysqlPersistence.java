@@ -4,7 +4,7 @@ import com.Pharmacy.Project.LogicComponent.*;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class mysqlDB extends dbHandler {
+public class mysqlPersistence extends PersistenceHandler {
     // mysql specific code
     private Connection connection = null;
     private Statement statement = null;

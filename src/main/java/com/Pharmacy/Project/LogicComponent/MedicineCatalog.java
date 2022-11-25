@@ -1,7 +1,7 @@
 package com.Pharmacy.Project.LogicComponent;
 
-import com.Pharmacy.Project.DBLayer.dbHandler;
-import com.Pharmacy.Project.DBLayer.mysqlDB;
+import com.Pharmacy.Project.DBLayer.PersistenceHandler;
+import com.Pharmacy.Project.DBLayer.mysqlPersistence;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ public class MedicineCatalog {
                 medicine.setQuantity(quantity);
             }
         }
-        dbHandler db = new mysqlDB();
+        PersistenceHandler db = new mysqlPersistence();
         db.updateStock(medicineId, quantity);
     }
     public ArrayList<Medicine> getUnavailableMedicine() {
