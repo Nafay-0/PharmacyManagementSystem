@@ -23,7 +23,7 @@ public abstract class PersistenceHandler {
     public abstract boolean verifyCashier(String EmployeeName, String EmployeePassword) throws SQLException;
     public abstract void insertSales(Sale S);
     abstract void addManager(Manager M);
-    abstract void addCashier(Cashier c);
+    public abstract void addCashier(Cashier c);
     public abstract void addMedicine(Medicine m, MedicineDescription md);
     public abstract void removeMedicine(Medicine m);
     abstract void addSupplier(Supplier s);

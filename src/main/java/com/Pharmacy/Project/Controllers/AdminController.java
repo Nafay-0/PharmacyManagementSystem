@@ -145,4 +145,12 @@ public class AdminController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+    public void RegisterCashier(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) orderBtn.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/RegisterCashier.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    }
 }

@@ -156,4 +156,13 @@ public class Pharmacy {
     public void removeMedicine(Medicine m) {
         db.removeMedicine(m);
     }
+
+    public boolean verifyCashier(String username, String password) throws SQLException {
+        return db.verifyCashier(username, password);
+    }
+
+    public void addCashier(String name, String password, String address, String phone) {
+        Cashier cashier = new Cashier(0,name, address, phone,password);
+        db.addCashier(cashier);
+    }
 }

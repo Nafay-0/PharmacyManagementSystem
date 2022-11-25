@@ -44,7 +44,7 @@ public class LoginController implements Initializable {
         if (role.equals("Manager") && pharmacy.verifyManager(username,password)){
             return true;
         }
-        else if (username.equals("cashier") && password.equals("cashier") && role.equals("Cashier")) {
+        else if (role.equals("Cashier") && pharmacy.verifyCashier(username,password)) {
             return true;
         } else {
             return false;
@@ -107,7 +107,5 @@ public class LoginController implements Initializable {
         userchoice.setOnAction(event -> {
 //            userRole.setText(userchoice.getValue());
         });
-
-
     }
 }

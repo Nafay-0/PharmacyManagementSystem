@@ -71,17 +71,23 @@ public class mysqlPersistence extends PersistenceHandler {
             throw new RuntimeException(ex);
         }
     }
-
-
-
     @Override
     void addManager(Manager M) {
 
     }
 
     @Override
-    void addCashier(Cashier c) {
-
+    public void addCashier(Cashier c) {
+        // Cashier Table EmployeeID, EmployeeName,EmployeeAddress, EmployeePhone, EmployeePassword
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            statement = connection.createStatement();
+            String query = "INSERT INTO Cashier (EmployeeName,EmployeeAddress, EmployeePhone, EmployeePassword) VALUES ('" + c.getEmployeeName() + "', '" + c.getEmployeeAddress() + "', '" + c.getEmployeePhone() + "', '" + c.getEmployeePassword() + "')";
+            System.out.println(query);
+            statement.executeUpdate(query);
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
@@ -129,7 +135,6 @@ public class mysqlPersistence extends PersistenceHandler {
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
-
     }
 
 
@@ -221,11 +226,6 @@ public class mysqlPersistence extends PersistenceHandler {
             medicine.setQuantity(resultSet.getInt("quantity"));
             medicines.add(medicine);
         }
-        //System.out.println(medicines);
-//        // print all the medicines
-//        for (Medicine medicine : medicines) {
-//            System.out.println(medicine.getMedicineId() + " " + medicine.getQuantity());
-//        }
 
         return medicines;
     }
@@ -312,8 +312,6 @@ public class mysqlPersistence extends PersistenceHandler {
             sale.setSaleStatus(Boolean.parseBoolean(resultSet.getString("SaleStatus")));
 
         }
-        // get all SaleItems from SaleLineItem Table
-        // SaleLineItem Table itemID,medicineID,quantity,price,SaleId
         ArrayList<SaleLineItem> saleItems = new ArrayList<>();
         query = "SELECT * FROM SaleLineItem WHERE SaleId = " + sale.getSaleId();
         System.out.println(query);

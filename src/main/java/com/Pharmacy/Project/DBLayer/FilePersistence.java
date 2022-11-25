@@ -31,7 +31,7 @@ public class FilePersistence extends PersistenceHandler {
     }
 
     @Override
-    void addCashier(Cashier c) {
+    public void addCashier(Cashier c) {
 
     }
 
