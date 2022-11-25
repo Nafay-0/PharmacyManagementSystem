@@ -41,6 +41,13 @@ public class CashierController implements Initializable {
 
     Sale currentSale;
 
+    public void goBack(ActionEvent event) throws IOException {
+        Stage stage = (Stage)saleList.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/CashierPage.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
     public void addSale(ActionEvent actionEvent) throws IOException, SQLException {
         currentSale = new Sale();
         currentSale.setSaleDate(new Date());
@@ -67,11 +74,6 @@ public class CashierController implements Initializable {
     }
 
     public void payAmount(ActionEvent actionEvent) throws SQLException, IOException {
-        // show Dialog box asking for paid amount
-        // if paid amount is greater than total amount
-        // show change
-        // else show error alert
-// update sale status to false
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Payment");
         dialog.setHeaderText("Enter the amount paid");
@@ -97,8 +99,7 @@ public class CashierController implements Initializable {
                 pharmacy.getMedicineCatalogue().setMedicineQuantity(medicine.getMedicineId(), previousQuantity - quantity);
                 System.out.println("Old quantity : " + previousQuantity + " New Quantity : " + (previousQuantity - quantity));
             }
-            //dbHandler dbHandler = new dbHandler();
-           // dbHandler.addSale(currentSale);
+
             Stage stage = (Stage) payBtn.getScene().getWindow();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/CashierPage.fxml")));
             stage.setScene(new Scene(root));
@@ -110,13 +111,6 @@ public class CashierController implements Initializable {
             alert.setContentText("Amount paid is less than total amount");
             alert.showAndWait();
         }
-
-
-//        totalCost1.setText(String.valueOf("Total : " + total));
-//        Stage stage = (Stage)payBtn.getScene().getWindow();
-//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/Transaction.fxml")));
-//        stage.setScene(new Scene(root));
-//        stage.show();
     }
     public void startSale(ActionEvent actionEvent) throws IOException {
 

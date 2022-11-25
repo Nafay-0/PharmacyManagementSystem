@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 // generic db class; can be used for any db mysql, oracle, etc
 public abstract class dbHandler {
-
     static private dbHandler instance = null;
     public static dbHandler getInstance(String dbType) {
         if (instance == null) {

@@ -39,6 +39,13 @@ public class AdminController implements Initializable {
     private Button orderBtn;
 
 
+
+    public void goBack(ActionEvent event) throws IOException {
+        Stage stage = (Stage) addBtn.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/AdminPage.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     public void showReport(ActionEvent event) throws IOException {
         Stage stage = (Stage) reportBtn.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/viewReport.fxml")));

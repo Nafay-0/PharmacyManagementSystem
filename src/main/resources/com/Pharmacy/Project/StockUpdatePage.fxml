@@ -12,7 +12,7 @@
     <children>
         <AnchorPane prefHeight="600.0" prefWidth="145.0" style="-fx-background-color: #8fbac2;">
             <children>
-                <Button fx:id="retBut" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #d73a49; -fx-background-radius: 15;" text="Back" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                <Button fx:id="retBut" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #d73a49; -fx-background-radius: 15;" text="Back" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                     <font>
                         <Font size="13.0" />
                     </font>

@@ -4,12 +4,18 @@ import com.Pharmacy.Project.LogicComponent.Pharmacy;
 import com.Pharmacy.Project.LogicComponent.Sale;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ReturnsController implements Initializable {
@@ -29,6 +35,12 @@ public class ReturnsController implements Initializable {
     private Label refundAmnt;
 
 
+    public void goBack(ActionEvent event) throws IOException {
+        Stage stage = (Stage)getBtn.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/CashierPage.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     public void endReturn(ActionEvent actionEvent)throws SQLException {
         pharmacy.updateSale(currentSale);
         // show alert that return is successfully complete

@@ -3,12 +3,18 @@ package com.Pharmacy.Project.Controllers;
 import com.Pharmacy.Project.LogicComponent.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class OrderMedicines implements Initializable {
@@ -18,6 +24,13 @@ public class OrderMedicines implements Initializable {
     @FXML
     private ListView<String> medList;
 
+
+    public void goBack(ActionEvent event) throws IOException {
+        Stage stage = (Stage) orderBtn.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/AdminPage.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     public void orderMedicine(ActionEvent event) throws SQLException {
         // get medicine id from selected item
         int id = Integer.parseInt(medList.getSelectionModel().getSelectedItem().split(" ")[0]);
