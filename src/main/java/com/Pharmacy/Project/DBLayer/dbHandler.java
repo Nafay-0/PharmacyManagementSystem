@@ -47,4 +47,5 @@ public abstract class dbHandler {
     public abstract Sale getSalefromReceipt(int receiptId) throws SQLException;
 
     public abstract void updateSale(Sale s) throws SQLException;
+
 }

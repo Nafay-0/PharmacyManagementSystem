@@ -91,8 +91,6 @@ public class ReturnsController implements Initializable {
             alert.setHeaderText("Quantity is greater than the quantity in the sale");
             alert.setContentText("Please enter a valid quantity");
             alert.showAndWait();
-
-
         }
         else{
             // If quantity == quantity in the sale
@@ -100,12 +98,16 @@ public class ReturnsController implements Initializable {
                 // remove the sale line item
                 RefundAmount += currentSale.getSaleLineItems().get(index).getPrice() * quantity;
                 currentSale.getSaleLineItems().remove(index);
+
             }
             else{
 
                 currentSale.getSaleLineItems().get(index).setQuantity(currentSale.getSaleLineItems().get(index).getQuantity()-quantity);
                 RefundAmount += currentSale.getSaleLineItems().get(index).getPrice() * quantity;
             }
+            System.out.println("Previous quantity : " + pharmacy.getMedicineCatalogue().getMedicineQuantity(id));
+            pharmacy.getMedicineCatalogue().setMedicineQuantity(id,pharmacy.getMedicineCatalogue().getMedicineQuantity(id)+quantity);
+            System.out.println("New quantity : " + pharmacy.getMedicineCatalogue().getMedicineQuantity(id));
             currentSale.setTotalPrice(currentSale.getTotalPrice()-RefundAmount);
             System.out.println("Refund Amount : " + RefundAmount);
             System.out.println("Updated Sale Total : " + currentSale.getTotalPrice());

@@ -89,6 +89,14 @@ public class CashierController implements Initializable {
             pharmacy.saveSale(currentSale);
             Receipt receipt = new Receipt();
             receipt.setSaleID(currentSale.getSaleId());
+            // for every saleLineItem update the quantity of medicine in stock
+            for (SaleLineItem saleLineItem : currentSale.getSaleLineItems()) {
+                Medicine medicine = saleLineItem.getMedicine();
+                int quantity = saleLineItem.getQuantity();
+                int previousQuantity = pharmacy.getMedicineCatalogue().getMedicineQuantity(medicine.getMedicineId());
+                pharmacy.getMedicineCatalogue().setMedicineQuantity(medicine.getMedicineId(), previousQuantity - quantity);
+                System.out.println("Old quantity : " + previousQuantity + " New Quantity : " + (previousQuantity - quantity));
+            }
             //dbHandler dbHandler = new dbHandler();
            // dbHandler.addSale(currentSale);
             Stage stage = (Stage) payBtn.getScene().getWindow();

@@ -33,6 +33,15 @@ public class MedicineCatalog {
         return medicineDescriptionMap.get(medicineId);
     }
 
+    public int getMedicineQuantity(int medicineId) {
+        Medicine Medicine = new Medicine();
+        for (Medicine m : medicineList) {
+            if (m.getMedicineId() == medicineId) {
+                Medicine = m;
+            }
+        }
+        return Medicine.getQuantity();
+    }
     public void setMedicineQuantity(int medicineId, int quantity) throws SQLException {
         for (Medicine medicine : medicineList) {
             if (medicine.getMedicineId() == medicineId) {
