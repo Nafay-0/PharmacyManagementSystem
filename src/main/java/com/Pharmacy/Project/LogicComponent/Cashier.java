@@ -1,6 +1,8 @@
 package com.Pharmacy.Project.LogicComponent;
 
-public class Cashier {
+import java.io.Serializable;
+
+public class Cashier implements Serializable {
     int EmployeeID;
     String EmployeeName;
     String EmployeeAddress;

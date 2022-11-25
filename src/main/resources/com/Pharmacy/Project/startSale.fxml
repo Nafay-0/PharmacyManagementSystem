@@ -45,9 +45,9 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <Text layoutX="185.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="52.7158203125" />
-            <Text layoutX="254.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" wrappingWidth="52.7158203125" />
-            <Text layoutX="345.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="52.7158203125" />
+            <Text layoutX="191.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="52.7158203125" />
+            <Text layoutX="246.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" wrappingWidth="52.7158203125" />
+            <Text layoutX="318.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="52.7158203125" />
             </children>
         </AnchorPane>
     </top>

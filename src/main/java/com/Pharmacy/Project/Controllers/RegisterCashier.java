@@ -28,7 +28,7 @@ public class RegisterCashier {
     @FXML
     private PasswordField passwordField;
 
-    public Boolean check_exist(String regName, String Password) throws SQLException {
+    public Boolean check_exist(String regName, String Password) throws SQLException, IOException {
         Pharmacy pharmacy = Pharmacy.getInstance();
         if(pharmacy.verifyCashier(regName,Password)){
             return true;

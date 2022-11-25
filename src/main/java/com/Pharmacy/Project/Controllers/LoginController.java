@@ -40,7 +40,7 @@ public class LoginController implements Initializable {
     }
 
 
-    public boolean isUserValid(String username, String password,String role) throws SQLException {
+    public boolean isUserValid(String username, String password,String role) throws SQLException, IOException, ClassNotFoundException {
         if (role.equals("Manager") && pharmacy.verifyManager(username,password)){
             return true;
         }
@@ -51,9 +51,7 @@ public class LoginController implements Initializable {
         }
     }
 
-
-
-    public void login(ActionEvent event) throws SQLException {
+    public void login(ActionEvent event) throws SQLException, IOException, ClassNotFoundException {
         String username = loginId.getText();
         String password = loginPassword.getText();
         String role = userchoice.getValue();

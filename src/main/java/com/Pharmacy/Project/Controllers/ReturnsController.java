@@ -33,6 +33,8 @@ public class ReturnsController implements Initializable {
     private ListView<String> saleView;
     @FXML
     private Label refundAmnt;
+    @FXML
+    private Label SaleInfo;
 
 
     public void goBack(ActionEvent event) throws IOException {
@@ -57,10 +59,9 @@ public class ReturnsController implements Initializable {
         refundAmnt.setText("Refund Amount : " + RefundAmount);
         int saleId = currentSale.getSaleId();
         System.out.println("Fetched : " + saleId);
-        saleView.getItems().add("Sale Id : " + saleId);
-        saleView.getItems().add("Sale Date : " + currentSale.getSaleDate());
-        saleView.getItems().add("Sale Total : " + currentSale.getTotalPrice());
-        saleView.getItems().add("Sale Line Items : \n");
+        SaleInfo.setText("Sale ID : " + saleId + "\t Sale Date : " + currentSale.getSaleDate() +
+                "\t" + "Sale Total : " + currentSale.getTotalPrice());;
+
 
         for (int i = 0; i < currentSale.getSaleLineItems().size(); i++) {
             String saleItem = "";
@@ -107,13 +108,14 @@ public class ReturnsController implements Initializable {
         else{
             // If quantity == quantity in the sale
             if(quantity==currentSale.getSaleLineItems().get(index).getQuantity()){
+                System.out.println("Quantity == quantity in the sale");
                 // remove the sale line item
                 RefundAmount += currentSale.getSaleLineItems().get(index).getPrice() * quantity;
                 currentSale.getSaleLineItems().remove(index);
+                System.out.println("Removed");
 
             }
             else{
-
                 currentSale.getSaleLineItems().get(index).setQuantity(currentSale.getSaleLineItems().get(index).getQuantity()-quantity);
                 RefundAmount += currentSale.getSaleLineItems().get(index).getPrice() * quantity;
             }
@@ -128,23 +130,26 @@ public class ReturnsController implements Initializable {
 
     }
     public void getSale() throws SQLException {
+        saleView.getItems().clear();
         int recieptId = Integer.parseInt(Rid.getText());
         pharmacy = Pharmacy.getInstance();
         currentSale = new Sale();
         currentSale= pharmacy.getSale(recieptId);
         int saleId = currentSale.getSaleId();
         System.out.println("Fetched : " + saleId);
-        saleView.getItems().add("Sale Id : " + saleId);
-        saleView.getItems().add("Sale Date : " + currentSale.getSaleDate());
-        saleView.getItems().add("Sale Total : " + currentSale.getTotalPrice());
-        saleView.getItems().add("Sale Line Items : \n");
+        SaleInfo.setText("Sale ID : " + saleId + "\t Sale Date : " + currentSale.getSaleDate() +
+                "\t" + "Sale Total : " + currentSale.getTotalPrice());;
+//        saleView.getItems().add("Sale Id : " + saleId);
+//        saleView.getItems().add("Sale Date : " + currentSale.getSaleDate());
+//        saleView.getItems().add("Sale Total : " + currentSale.getTotalPrice());
+//        saleView.getItems().add("Sale Line Items : \n");
 
         for (int i = 0; i < currentSale.getSaleLineItems().size(); i++) {
             String saleItem = "";
             saleItem += currentSale.getSaleLineItems().get(i).getMedicine().getMedicineId() + " ";
             //saleItem += "Medicine Name : " + currentSale.getSaleLineItems().get(i).getMedicine().getMedicineName() + "\t";
-            saleItem += "Quantity : " + currentSale.getSaleLineItems().get(i).getQuantity() + "\t";
-            saleItem += "Price : " + currentSale.getSaleLineItems().get(i).getPrice() + "\t";
+            saleItem += "\t\t\t" + currentSale.getSaleLineItems().get(i).getQuantity() + "\t";
+            saleItem += "\t\t\t" + currentSale.getSaleLineItems().get(i).getPrice() + "\t";
             saleView.getItems().add(saleItem);
         }
     }

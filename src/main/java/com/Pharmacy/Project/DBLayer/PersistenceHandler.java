@@ -2,6 +2,7 @@ package com.Pharmacy.Project.DBLayer;
 
 import com.Pharmacy.Project.LogicComponent.*;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -19,14 +20,14 @@ public abstract class PersistenceHandler {
         }
         return instance;
     }
-    public abstract   Boolean verifyManager(String EmployeeName, String EmployeePassword) throws SQLException;
-    public abstract boolean verifyCashier(String EmployeeName, String EmployeePassword) throws SQLException;
+    public abstract   Boolean verifyManager(String EmployeeName, String EmployeePassword) throws SQLException, IOException, ClassNotFoundException;
+    public abstract boolean verifyCashier(String EmployeeName, String EmployeePassword) throws SQLException, IOException;
     public abstract void insertSales(Sale S);
     abstract void addManager(Manager M);
     public abstract void addCashier(Cashier c);
     public abstract void addMedicine(Medicine m, MedicineDescription md);
     public abstract void removeMedicine(Medicine m);
-    abstract void addSupplier(Supplier s);
+    public abstract void addSupplier(Supplier s, ArrayList<Medicine> medicines) throws SQLException;
     abstract void addOrder(MedicineOrder o);
     abstract ArrayList<Medicine> getMedicine();
     abstract ArrayList<Manager> getManager();

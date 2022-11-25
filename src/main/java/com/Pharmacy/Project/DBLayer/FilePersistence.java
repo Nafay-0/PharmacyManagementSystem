@@ -2,6 +2,7 @@ package com.Pharmacy.Project.DBLayer;
 
 import com.Pharmacy.Project.LogicComponent.*;
 
+import java.io.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -11,13 +12,50 @@ public class FilePersistence extends PersistenceHandler {
 
 
     @Override
-    public Boolean verifyManager(String EmployeeName, String EmployeePassword) throws SQLException {
-        return null;
+    public Boolean verifyManager(String EmployeeName, String EmployeePassword) throws SQLException, IOException, ClassNotFoundException {
+        String fileName = "Manager.txt";
+        File file = new File(fileName);
+        if (!file.exists()) {
+            return false;
+        }
+        FileInputStream fileInputStream = new FileInputStream(fileName);
+        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+        ArrayList<Manager> managers = (ArrayList<Manager>) objectInputStream.readObject();
+        objectInputStream.close();
+        fileInputStream.close();
+        for (Manager manager : managers) {
+            if (manager.getEmployeeName().equals(EmployeeName) && manager.getEmployeePassword().equals(EmployeePassword)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
-    public boolean verifyCashier(String EmployeeName, String EmployeePassword) throws SQLException {
+    public boolean verifyCashier(String EmployeeName, String EmployeePassword) throws SQLException, IOException {
+        String fileName = "Cashier.txt";
+        File file = new File(fileName);
+        if (!file.exists()) {
+            return false;
+        }
+        FileInputStream fileInputStream = new FileInputStream(fileName);
+        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+        ArrayList<Cashier> cashiers = null;
+        try {
+            cashiers = (ArrayList<Cashier>) objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        objectInputStream.close();
+        fileInputStream.close();
+        for (Cashier cashier : cashiers) {
+            if (cashier.getEmployeeName().equals(EmployeeName) && cashier.getEmployeePassword().equals(EmployeePassword)) {
+                return true;
+            }
+        }
         return false;
+
+
     }
 
     @Override
@@ -47,7 +85,7 @@ public class FilePersistence extends PersistenceHandler {
 
 
     @Override
-    void addSupplier(Supplier s) {
+    public void addSupplier(Supplier s, ArrayList<Medicine> medicines) {
 
     }
 

@@ -4,6 +4,7 @@ import com.Pharmacy.Project.DBLayer.Factory;
 import com.Pharmacy.Project.DBLayer.PersistenceHandler;
 import com.Pharmacy.Project.DBLayer.mysqlPersistence;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -108,7 +109,7 @@ public class Pharmacy {
     }
 
 
-    public Boolean verifyManager(String EmployeeName, String password) throws SQLException {
+    public Boolean verifyManager(String EmployeeName, String password) throws SQLException, IOException, ClassNotFoundException {
         return db.verifyManager(EmployeeName, password);
     }
     public ArrayList<Medicine>getAllMedicines() throws SQLException {
@@ -157,12 +158,17 @@ public class Pharmacy {
         db.removeMedicine(m);
     }
 
-    public boolean verifyCashier(String username, String password) throws SQLException {
+    public boolean verifyCashier(String username, String password) throws SQLException, IOException {
         return db.verifyCashier(username, password);
     }
 
     public void addCashier(String name, String password, String address, String phone) {
         Cashier cashier = new Cashier(0,name, address, phone,password);
         db.addCashier(cashier);
+    }
+
+    public void addSupplier(String name, String address, String phone, String email, ArrayList<Medicine> medicines) throws SQLException {
+        Supplier supplier = new Supplier(0,name, address, phone, email);
+        db.addSupplier(supplier, medicines);
     }
 }

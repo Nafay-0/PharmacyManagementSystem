@@ -139,8 +139,28 @@ public class mysqlPersistence extends PersistenceHandler {
 
 
     @Override
-    void addSupplier(Supplier s) {
+    public void addSupplier(Supplier s, ArrayList<Medicine> medicines) throws SQLException {
+        // Supplier Table SupplierId,SupplierName,SupplierAddress,SupplierPhone,SupplierEmail
+        // MedicineSuppliers Table MedicineId,SupplierId
 
+        connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        String query = "INSERT INTO Supplier (SupplierName,SupplierAddress,SupplierPhone,SupplierEmail) VALUES ('" + s.getSupplierName() + "', '" + s.getSupplierAddress() + "', '" + s.getSupplierPhone() + "', '" + s.getSupplierEmail() + "')";
+        System.out.println(query);
+        statement.executeUpdate(query);
+        // get SupplierId of added supplier
+        query = "SELECT SupplierId FROM Supplier WHERE SupplierId = (SELECT MAX(SupplierId) FROM Supplier)";
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
+        int SupplierId = 0;
+        if (resultSet.next()) {
+            SupplierId = resultSet.getInt("SupplierId");
+        }
+        for (Medicine m : medicines) {
+            query = "INSERT INTO MedicineSuppliers (MedicineId,SupplierId) VALUES (" + m.getMedicineId() + ", " + SupplierId + ")";
+            System.out.println(query);
+            statement.executeUpdate(query);
+        }
     }
 
     @Override

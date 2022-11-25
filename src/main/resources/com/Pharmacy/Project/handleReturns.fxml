@@ -23,7 +23,7 @@
                                 </font>
                             </Button>
                         </children></VBox>
-                    <ListView fx:id="saleView" layoutX="185.0" layoutY="146.0" prefHeight="345.0" prefWidth="433.0" />
+                    <ListView fx:id="saleView" layoutX="185.0" layoutY="195.0" prefHeight="296.0" prefWidth="433.0" />
                     <Label fx:id="refundAmnt" layoutX="185.0" layoutY="526.0" prefHeight="26.0" prefWidth="275.0" text="Refund : ">
                         <font>
                             <Font size="20.0" />
@@ -34,7 +34,7 @@
                             <Font size="13.0" />
                         </font>
                     </Button>
-               <Label layoutX="185.0" layoutY="32.0" text="Handle Returns">
+               <Label layoutX="185.0" layoutY="24.0" text="Handle Returns">
                   <font>
                      <Font name="System Bold" size="34.0" />
                   </font>
@@ -44,17 +44,22 @@
                      <Font size="13.0" />
                   </font>
                </Button>
-               <TextField fx:id="Rid" layoutX="265.0" layoutY="96.0" promptText="Enter Reciept No." />
-               <Text layoutX="197.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GetSale">
+               <TextField fx:id="Rid" layoutX="264.0" layoutY="80.0" promptText="Enter Reciept No." />
+               <Text layoutX="185.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GetSale">
                   <font>
                      <Font size="15.0" />
                   </font>
                </Text>
-               <Button fx:id="getBtn" layoutX="452.0" layoutY="93.0" mnemonicParsing="false" onAction="#getSale" prefHeight="32.0" prefWidth="88.0" style="-fx-background-color: #009ee2; -fx-background-radius: 15;" text="Get Sale" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <Button fx:id="getBtn" layoutX="450.0" layoutY="76.0" mnemonicParsing="false" onAction="#getSale" prefHeight="32.0" prefWidth="88.0" style="-fx-background-color: #009ee2; -fx-background-radius: 15;" text="Get Sale" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                   <font>
                      <Font size="13.0" />
                   </font>
                </Button>
+               <Label fx:id="SaleInfo" layoutX="183.0" layoutY="120.0" text="Sale Info : " />
+               <Text layoutX="200.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" />
+               <Text layoutX="264.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id" />
+               <Text layoutX="344.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" />
                 </children>
             </AnchorPane>
         </top>
