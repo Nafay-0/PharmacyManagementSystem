@@ -36,9 +36,11 @@ public class FilePersistence extends PersistenceHandler {
     }
 
     @Override
-    void addMedicine(Medicine m) {
+    public void addMedicine(Medicine m, MedicineDescription md) {
 
     }
+
+
 
     @Override
     void addSupplier(Supplier s) {

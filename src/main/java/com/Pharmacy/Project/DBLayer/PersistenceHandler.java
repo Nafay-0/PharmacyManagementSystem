@@ -24,7 +24,7 @@ public abstract class PersistenceHandler {
     public abstract void insertSales(Sale S);
     abstract void addManager(Manager M);
     abstract void addCashier(Cashier c);
-    abstract void addMedicine(Medicine m);
+    public abstract void addMedicine(Medicine m, MedicineDescription md);
     abstract void addSupplier(Supplier s);
     abstract void addOrder(MedicineOrder o);
     abstract ArrayList<Medicine> getMedicine();
@@ -46,5 +46,6 @@ public abstract class PersistenceHandler {
     public abstract Sale getSalefromReceipt(int receiptId) throws SQLException;
 
     public abstract void updateSale(Sale s) throws SQLException;
+
 
 }

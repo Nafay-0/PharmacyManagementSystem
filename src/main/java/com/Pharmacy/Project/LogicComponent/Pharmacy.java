@@ -146,4 +146,10 @@ public class Pharmacy {
     public void setMedicineCatalogue(MedicineCatalog medicineCatalogue) {
         this.medicineCatalogue = medicineCatalogue;
     }
+
+    public void addMedicine(Medicine medicine, MedicineDescription medicineDescription) {
+        medicineCatalogue.addMedicine(medicine, medicineDescription);
+        db.addMedicine(medicine, medicineDescription);
+
+    }
 }
