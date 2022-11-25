@@ -47,7 +47,7 @@ public class CashierController implements Initializable {
         currentSale.setSaleStatus(true);
         int med_id = Integer.parseInt(medId.getText());
         int quantity = Integer.parseInt(quanField.getText());
-        Pharmacy pharmacy = new Pharmacy();
+        Pharmacy pharmacy = Pharmacy.getInstance();
         ArrayList<Medicine> avlMedicines = pharmacy.getAllMedicines();
         Medicine currentMedicine = null;
         for (Medicine medicine : avlMedicines) {

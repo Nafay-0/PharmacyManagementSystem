@@ -34,7 +34,7 @@ public class LoginController implements Initializable {
     private ChoiceBox<String> userchoice;
     private String[] roles = {"Manager", "Cashier"};
 
-    Pharmacy pharmacy = new Pharmacy();
+    Pharmacy pharmacy = Pharmacy.getInstance();
 
     public LoginController() throws SQLException {
     }

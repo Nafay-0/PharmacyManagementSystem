@@ -135,14 +135,6 @@ public class ReturnsController implements Initializable {
             saleItem += "Price : " + currentSale.getSaleLineItems().get(i).getPrice() + "\t";
             saleView.getItems().add(saleItem);
         }
-
-
-
-
-
-
-
-
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

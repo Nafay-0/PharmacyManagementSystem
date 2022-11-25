@@ -80,7 +80,7 @@ public class AdminController implements Initializable {
         String result = dialog.getResult();
         int stock = Integer.parseInt(result);
         System.out.println(stock);
-        Pharmacy p = new Pharmacy();
+        Pharmacy p = Pharmacy.getInstance();
         p.getMedicineCatalogue().setMedicineQuantity(id,stock);
         Stage stage = (Stage) addBtn.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/StockUpdatePage.fxml")));
@@ -96,7 +96,7 @@ public class AdminController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Pharmacy pharmacy = null;
         try {
-            pharmacy = new Pharmacy();
+            pharmacy = Pharmacy.getInstance();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

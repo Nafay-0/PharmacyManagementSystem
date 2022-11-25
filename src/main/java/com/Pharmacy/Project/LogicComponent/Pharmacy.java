@@ -20,7 +20,7 @@ public class Pharmacy {
     ArrayList<Receipt> receiptList;
 
     static Pharmacy instance = null;
-    public Pharmacy() throws SQLException {
+    private Pharmacy() throws SQLException {
 
         db = new mysqlDB();
         medicineCatalogue = new MedicineCatalog();
