@@ -57,4 +57,7 @@ public abstract class PersistenceHandler {
     public abstract void completeOrder(MedicineOrder o);
     public abstract Medicine getMedicine(int id) throws SQLException;
     public abstract Supplier getSupplier(int id) throws SQLException;
+
+    public abstract ArrayList<Sale> getSalesReport() throws SQLException;
+    public abstract ArrayList<MedicineOrder> getOrdersReport();
 }

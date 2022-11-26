@@ -186,7 +186,19 @@ public class Pharmacy {
         return orderList;
     }
 
-    public void completeOrder(MedicineOrder o) {
+    public void completeOrder(MedicineOrder o) throws SQLException {
         db.completeOrder(o);
+        // update Medicine quantity in MedicineCatalog
+        Medicine m = o.getMedicine();
+        m.setQuantity(m.getQuantity() + o.getQuantity());
+        medicineCatalogue.setMedicineQuantity(m.getMedicineId(), m.getQuantity());
+    }
+
+    public ArrayList<Sale> getSalesReport() throws SQLException {
+        return db.getSalesReport();
+    }
+
+    public ArrayList<MedicineOrder> getOrdersReport() {
+        return db.getOrdersReport();
     }
 }

@@ -487,4 +487,58 @@ public class mysqlPersistence extends PersistenceHandler {
         return supplier;
     }
 
+    @Override
+    public ArrayList<Sale> getSalesReport() throws SQLException {
+        // get Sales Arraylist
+        ArrayList<Sale> sales = new ArrayList<>();
+        connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        String query = "SELECT * FROM Sale";
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
+        while (resultSet.next()) {
+            Sale sale = new Sale();
+            sale.setSaleId(resultSet.getInt("SaleId"));
+            sale.setSaleDate(resultSet.getDate("SaleDate"));
+            sale.setTotalPrice(resultSet.getDouble("TotalPrice"));
+            sales.add(sale);
+
+        }
+        return sales;
+    }
+
+
+    @Override
+    public ArrayList<MedicineOrder> getOrdersReport() {
+        // Get completed Orders
+        ArrayList<MedicineOrder> medicineOrders = new ArrayList<>();
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            statement = connection.createStatement();
+            String query = "SELECT * FROM CompletedOrder";
+            System.out.println(query);
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                MedicineOrder medicineOrder = new MedicineOrder();
+                medicineOrder.setOrderId(resultSet.getInt("OrderId"));
+                int MedicineID = resultSet.getInt("MedicineId");
+                System.out.println("MedicineID " + MedicineID);
+                Medicine medicine = new Medicine();
+                medicine.setMedicineId(MedicineID);
+                medicineOrder.setMedicine(medicine);
+                medicineOrder.setQuantity(resultSet.getInt("quantity"));
+                medicineOrder.setDate(resultSet.getDate("Date"));
+                int SupplierID = resultSet.getInt("SupplierId");
+                Supplier supplier = new Supplier();
+                supplier.setSupplierId(SupplierID);
+                medicineOrder.setSupplier(supplier);
+                medicineOrder.setTotal(resultSet.getDouble("totalCost"));
+                medicineOrders.add(medicineOrder);
+            }
+        } catch (SQLException ex) {
+
+        }
+        return medicineOrders;
+    }
+
 }

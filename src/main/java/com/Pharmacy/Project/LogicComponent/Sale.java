@@ -95,18 +95,11 @@ public class Sale {
         }
         return totalPrice;
     }
+
+
     @Override
     public String toString() {
-        return "Sale{" +
-                "SaleId=" + SaleId +
-                ", CustomerName='" + CustomerName + '\'' +
-                ", TotalPrice=" + TotalPrice +
-                ", SaleDate=" + SaleDate +
-                ", SaleStatus=" + SaleStatus +
-                ", SaleLineItems=" + SaleLineItems +
-                '}';
+        return  SaleId  + " \t\t " + TotalPrice + " \t\t " +  SaleDate ;
     }
-
-
 };
 

@@ -72,4 +72,10 @@ public class MedicineOrder {
     public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
     }
+
+    @Override
+    public String toString() {
+        return  OrderId + " \t\t\t " + medicine.getMedicineId() + " \t\t\t " +
+                + quantity + " \t\t\t " + date + " \t\t " + totalCost;
+    }
 }

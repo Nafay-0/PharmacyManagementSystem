@@ -183,4 +183,14 @@ public class FilePersistence extends PersistenceHandler {
     public Supplier getSupplier(int id) throws SQLException {
         return null;
     }
+
+    @Override
+    public ArrayList<Sale> getSalesReport() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<MedicineOrder> getOrdersReport() {
+        return null;
+    }
 }
