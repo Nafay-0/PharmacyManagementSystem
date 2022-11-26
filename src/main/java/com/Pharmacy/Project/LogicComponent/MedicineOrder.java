@@ -3,6 +3,7 @@ package com.Pharmacy.Project.LogicComponent;
 import java.util.Date;
 
 public class MedicineOrder {
+    int OrderId;
     Medicine medicine;
     int quantity;
     Date date;
@@ -54,5 +55,21 @@ public class MedicineOrder {
     }
     public double getTotal() {
         return totalCost;
+    }
+
+    public int getOrderId() {
+        return OrderId;
+    }
+
+    public void setOrderId(int orderId) {
+        OrderId = orderId;
+    }
+
+    public double getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
     }
 }

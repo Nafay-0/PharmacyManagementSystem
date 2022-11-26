@@ -39,7 +39,6 @@ public class AdminController implements Initializable {
     private Button orderBtn;
 
 
-
     public void goBack(ActionEvent event) throws IOException {
         Stage stage = (Stage) addBtn.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/AdminPage.fxml")));
@@ -155,6 +154,19 @@ public class AdminController implements Initializable {
     public void RegisterCashier(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) orderBtn.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/RegisterCashier.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    }
+
+    public void manageOrders(ActionEvent actionEvent) {
+        Stage stage = (Stage) orderBtn.getScene().getWindow();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/MedicineOrders.fxml")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         stage.setScene(new Scene(root));
         stage.show();
 

@@ -392,4 +392,99 @@ public class mysqlPersistence extends PersistenceHandler {
 
     }
 
+    @Override
+    public ArrayList<MedicineOrder> getOrderRecord() throws SQLException {
+        // MedicineOrder : OrderId,MedicineID,quantity,Date,SupplierID,totalCost
+        connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        String query = "SELECT * FROM MedicineOrder";
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
+        ArrayList<MedicineOrder> medicineOrders = new ArrayList<>();
+        while (resultSet.next()) {
+            MedicineOrder medicineOrder = new MedicineOrder();
+            medicineOrder.setOrderId(resultSet.getInt("OrderId"));
+            int MedicineID = resultSet.getInt("MedicineId");
+            System.out.println("MedicineID " + MedicineID);
+            Medicine medicine = new Medicine();
+            medicine.setMedicineId(MedicineID);
+            medicineOrder.setMedicine(medicine);
+            medicineOrder.setQuantity(resultSet.getInt("Quantity"));
+            medicineOrder.setDate(resultSet.getDate("Date"));
+            int SupplierID = resultSet.getInt("SupplierId");
+            Supplier supplier = new Supplier();
+            supplier.setSupplierId(SupplierID);
+            medicineOrder.setSupplier(supplier);
+            medicineOrder.setTotal(resultSet.getDouble("TotalCost"));
+            medicineOrders.add(medicineOrder);
+        }
+        return medicineOrders;
+    }
+
+    @Override
+    public void completeOrder(MedicineOrder o) {
+        // add Order to CompletedOrder Table
+        // CompletedOrder Table OrderId,MedicineID,quantity,Date,SupplierID,totalCost
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            statement = connection.createStatement();
+            Date date = new Date(System.currentTimeMillis());
+            String query = "INSERT INTO CompletedOrder (MedicineId,quantity,Date,SupplierId,totalCost) VALUES (" + o.getMedicine().getMedicineId() + "," + o.getQuantity() + ",'" + date + "'," + o.getSupplier().getSupplierId() + "," + o.getTotal() + ")";
+            System.out.println(query);
+            statement.executeUpdate(query);
+            // delete order from MedicineOrder Table
+            query = "DELETE FROM MedicineOrder WHERE OrderID = " + o.getOrderId();
+            System.out.println(query);
+            statement.executeUpdate(query);
+            int prevQuantity = 0;
+            query = "SELECT * FROM Medicine WHERE MedicineId = " + o.getMedicine().getMedicineId();
+            System.out.println(query);
+            resultSet = statement.executeQuery(query);
+            if (resultSet.next()) {
+                prevQuantity = resultSet.getInt("Quantity");
+            }
+
+
+            // update Medicine Table
+            query = "UPDATE Medicine SET Quantity = " + (prevQuantity + o.getQuantity()) + " WHERE MedicineId = " + o.getMedicine().getMedicineId();
+            System.out.println(query);
+            statement.executeUpdate(query);
+        } catch (SQLException ex) {
+
+        }
+    }
+
+    @Override
+    public Medicine getMedicine(int id) throws SQLException {
+        Medicine medicine = new Medicine();
+        connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        String query = "SELECT * FROM Medicine WHERE MedicineId = " + id;
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
+        if (resultSet.next()) {
+            medicine.setMedicineId(resultSet.getInt("MedicineId"));
+            medicine.setQuantity(resultSet.getInt("quantity"));
+        }
+        return medicine;
+    }
+
+    @Override
+    public Supplier getSupplier(int id) throws SQLException {
+        Supplier supplier = new Supplier();
+        connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        String query = "SELECT * FROM Supplier WHERE SupplierId = " + id;
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
+        if (resultSet.next()) {
+            supplier.setSupplierId(resultSet.getInt("SupplierId"));
+            supplier.setSupplierName(resultSet.getString("SupplierName"));
+            supplier.setSupplierAddress(resultSet.getString("SupplierAddress"));
+            supplier.setSupplierPhone(resultSet.getString("SupplierPhone"));
+            supplier.setSupplierEmail(resultSet.getString("SupplierEmail"));
+        }
+        return supplier;
+    }
+
 }

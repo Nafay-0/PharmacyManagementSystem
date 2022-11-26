@@ -23,20 +23,20 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="191.0" layoutY="115.0" prefHeight="480.0" prefWidth="533.0">
+      <AnchorPane layoutX="191.0" layoutY="115.0" prefHeight="494.0" prefWidth="533.0">
          <children>
-            <Button fx:id="reportBtn" layoutX="348.0" layoutY="198.0" mnemonicParsing="false" onAction="#showReport" prefHeight="121.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: Blue; -fx-border-radius: 20;" text=" " />
+            <Button fx:id="reportBtn" layoutX="348.0" layoutY="187.0" mnemonicParsing="false" onAction="#showReport" prefHeight="121.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: Blue; -fx-border-radius: 20;" text=" " />
             <Button layoutX="21.0" layoutY="22.0" mnemonicParsing="false" onAction="#RegisterCashier" prefHeight="121.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: Blue; -fx-border-radius: 20;" text=" " />
             <Button fx:id="orderBtn" layoutX="186.0" layoutY="22.0" mnemonicParsing="false" onAction="#orderMedicines" prefHeight="121.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: Blue; -fx-border-radius: 20;" text=" " />
-            <Button fx:id="addBtn" layoutX="186.0" layoutY="198.0" mnemonicParsing="false" onAction="#addMedicine" prefHeight="121.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: Blue; -fx-border-radius: 20;" text=" " />
-            <Button fx:id="checkStock" layoutX="27.0" layoutY="198.0" mnemonicParsing="false" onAction="#ManageStock" prefHeight="121.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: Blue; -fx-border-radius: 20;" text=" " />
+            <Button fx:id="addBtn" layoutX="187.0" layoutY="188.0" mnemonicParsing="false" onAction="#addMedicine" prefHeight="121.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: Blue; -fx-border-radius: 20;" text=" " />
+            <Button fx:id="checkStock" layoutX="27.0" layoutY="188.0" mnemonicParsing="false" onAction="#ManageStock" prefHeight="121.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: Blue; -fx-border-radius: 20;" text=" " />
             <Button layoutX="348.0" layoutY="22.0" mnemonicParsing="false" onAction="#removeMedicine" prefHeight="121.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: Blue; -fx-border-radius: 20;" text=" " />
-            <Text layoutX="61.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Stock" />
+            <Text layoutX="61.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Stock" />
             <Text layoutX="217.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Medicine" />
             <Text layoutX="377.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove Medicine" />
             <Text layoutX="50.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Cashier" />
-            <Text layoutX="212.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Medicine" />
-            <Text layoutX="381.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generate Report" />
+            <Text layoutX="212.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Medicine" />
+            <Text layoutX="381.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generate Report" />
             <ImageView fitHeight="46.0" fitWidth="62.0" layoutX="72.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Assets/icons8-add-user-male-100.png" />
@@ -52,28 +52,30 @@
                   <Image url="@../../Assets/icons8-minus-100.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="62.0" layoutX="72.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="46.0" fitWidth="62.0" layoutX="72.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Assets/icons8-pharmacy-shop-100.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="62.0" layoutX="237.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="46.0" fitWidth="62.0" layoutX="238.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Assets/icons8-add-new-80.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="62.0" layoutX="399.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="46.0" fitWidth="62.0" layoutX="399.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Assets/icons8-graph-report-100.png" />
                </image>
             </ImageView>
-            <Button layoutX="193.0" layoutY="345.0" mnemonicParsing="false" onAction="#AddSupplier" prefHeight="121.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: Blue; -fx-border-radius: 20;" text=" " />
+            <Button layoutX="190.0" layoutY="345.0" mnemonicParsing="false" onAction="#AddSupplier" prefHeight="121.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: Blue; -fx-border-radius: 20;" text=" " />
             <Text layoutX="231.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Supplier" />
             <ImageView fitHeight="46.0" fitWidth="62.0" layoutX="244.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Assets/icons8-add-user-male-100.png" />
                </image>
             </ImageView>
+            <Button layoutX="27.0" layoutY="345.0" mnemonicParsing="false" onAction="#manageOrders" prefHeight="121.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: Blue; -fx-border-radius: 20;" text=" " />
+            <Text layoutX="58.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Orders" />
          </children>
       </AnchorPane>
    </children>

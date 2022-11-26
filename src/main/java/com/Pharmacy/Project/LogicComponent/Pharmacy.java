@@ -92,9 +92,7 @@ public class Pharmacy {
         this.ledger = ledger;
     }
 
-    public OrderRecord getOrderRecord() {
-        return orderRecord;
-    }
+
 
     public void setOrderRecord(OrderRecord orderRecord) {
         this.orderRecord = orderRecord;
@@ -172,5 +170,23 @@ public class Pharmacy {
     public void addSupplier(String name, String address, String phone, String email, ArrayList<Medicine> medicines) throws SQLException {
         Supplier supplier = new Supplier(0,name, address, phone, email);
         db.addSupplier(supplier, medicines);
+    }
+    public ArrayList<MedicineOrder> getOrderRecord() throws SQLException {
+        ArrayList<MedicineOrder> orderList = db.getOrderRecord();
+        System.out.println("Fetched order list" + orderList.size());
+        for (MedicineOrder m : orderList) {
+            Medicine M = db.getMedicine(m.getMedicine().getMedicineId());
+            m.setMedicine(M);
+            System.out.println("Medicine quantity" + M.getQuantity());
+
+            m.setSupplier(db.getSupplier(m.getSupplier().getSupplierId()));
+            this.orderRecord.addOrder(m);
+            //System.out.println("fetched order for" + m.getMedicine().getMedicineId());
+        }
+        return orderList;
+    }
+
+    public void completeOrder(MedicineOrder o) {
+        db.completeOrder(o);
     }
 }

@@ -13,4 +13,11 @@ public class OrderRecord {
     }
 
 
+    public ArrayList<MedicineOrder> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(ArrayList<MedicineOrder> orderList) {
+        this.orderList = orderList;
+    }
 }

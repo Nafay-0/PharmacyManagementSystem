@@ -163,4 +163,24 @@ public class FilePersistence extends PersistenceHandler {
     public void insertOrder(MedicineOrder medicineOrder) {
 
     }
+
+    @Override
+    public ArrayList<MedicineOrder> getOrderRecord() {
+        return null;
+    }
+
+    @Override
+    public void completeOrder(MedicineOrder o) {
+
+    }
+
+    @Override
+    public Medicine getMedicine(int id) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public Supplier getSupplier(int id) throws SQLException {
+        return null;
+    }
 }
