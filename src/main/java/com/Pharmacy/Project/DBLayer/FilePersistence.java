@@ -158,4 +158,9 @@ public class FilePersistence extends PersistenceHandler {
     public void updateSale(Sale s) throws SQLException {
 
     }
+
+    @Override
+    public void insertOrder(MedicineOrder medicineOrder) {
+
+    }
 }

@@ -54,7 +54,7 @@ public class MedicineCatalog {
     public ArrayList<Medicine> getUnavailableMedicine() {
         ArrayList<Medicine> UnavlMed = new ArrayList<Medicine>();
         for (Medicine medicine : medicineList) {
-            if (medicine.getQuantity() == 0) {
+            if (medicine.getQuantity() <= 50) {
                 UnavlMed.add(medicine);
             }
         }

@@ -29,6 +29,7 @@ public class Pharmacy {
         medicineCatalogue = new MedicineCatalog();
         medicineCatalogue = db.getMedicineCatalog();
         orderList = new OrderRecord();
+        orderRecord = new OrderRecord();
 
     }
 
@@ -131,6 +132,7 @@ public class Pharmacy {
     }
     public void addMedicineOrder(MedicineOrder medicineOrder) throws SQLException {
         orderRecord.addOrder(medicineOrder);
+        db.insertOrder(medicineOrder);
     }
     public ArrayList<Supplier> getSupplierListFromDB(Medicine M) throws SQLException {
         supplierList = db.getSupplierforMedicine(M);

@@ -3,15 +3,17 @@ package com.Pharmacy.Project.LogicComponent;
 import java.util.Date;
 
 public class MedicineOrder {
-   Medicine medicine;
+    Medicine medicine;
     int quantity;
     Date date;
     Supplier supplier;
+    double totalCost;
     public MedicineOrder(){
         this.medicine = new Medicine();
         this.quantity = 0;
         this.date = new Date();
         this.supplier = new Supplier();
+        this.totalCost = 0;
     }
 
     public Medicine getMedicine() {
@@ -44,5 +46,13 @@ public class MedicineOrder {
 
     public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
+    }
+
+    public void setTotal(double total) {
+        this.totalCost = total;
+
+    }
+    public double getTotal() {
+        return totalCost;
     }
 }

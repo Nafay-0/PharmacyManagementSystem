@@ -5,16 +5,22 @@ import com.Pharmacy.Project.LogicComponent.MedicineDescription;
 import com.Pharmacy.Project.LogicComponent.Pharmacy;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AddSupplierController implements Initializable {
@@ -34,6 +40,12 @@ public class AddSupplierController implements Initializable {
     @FXML
     private Button addMedicineButton;
 
+    public void goBack(ActionEvent event) throws IOException {
+        Stage stage = (Stage) addMedicineButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/AdminPage.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     public void addMedicine(ActionEvent event) throws SQLException {
         // get selected medicine id
         Pharmacy pharmacy = Pharmacy.getInstance();
@@ -100,7 +112,7 @@ public class AddSupplierController implements Initializable {
         }
         for (Medicine medicine : medicines) {
             MedicineDescription md = pharmacy.getMedicineCatalogue().getMedicineDescription(medicine.getMedicineId());
-            medicineList.getItems().add("" + medicine.getMedicineId() + " "+ "Medicine Name: " + md.getMedicineName() );
+            medicineList.getItems().add("" + medicine.getMedicineId() + " \t  "+  md.getMedicineName() );
         }
     }
 }

@@ -23,6 +23,7 @@ public class OrderMedicines implements Initializable {
     private Button orderBtn;
     @FXML
     private ListView<String> medList;
+    double orderTotal = 0;
 
 
     public void goBack(ActionEvent event) throws IOException {
@@ -89,7 +90,10 @@ public class OrderMedicines implements Initializable {
                 break;
             }
         }
+        double Medprice = pharmacy.getMedicineCatalogue().getMedicineDescription(medicine.getMedicineId()).getPrice();
+        double total = Medprice * quantity;
         medicineOrder.setSupplier(slectedSuppler);
+        medicineOrder.setTotal(total);
         pharmacy.addMedicineOrder(medicineOrder);
 
     }
@@ -105,8 +109,7 @@ public class OrderMedicines implements Initializable {
         for (Medicine med : UnavlMed) {
             MedicineDescription medDesc = pharmacy.getMedicineCatalogue().getMedicineDescription(med.getMedicineId());
             String medId = String.valueOf(med.getMedicineId());
-
-            medList.getItems().add(medId + " \t " + medDesc.getMedicineName());
+            medList.getItems().add(medId + " \t " + medDesc.getMedicineName() + " \t\t " + med.getQuantity() + " \t\t " + medDesc.getPrice());
         }
     }
 }

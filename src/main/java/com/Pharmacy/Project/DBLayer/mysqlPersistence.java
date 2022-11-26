@@ -373,4 +373,23 @@ public class mysqlPersistence extends PersistenceHandler {
 
     }
 
+    @Override
+    public void insertOrder(MedicineOrder medicineOrder) {
+        // MedicineOrder Table OrderId,MedicineID,quantity,Date,SupplierID,totalCost
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            statement = connection.createStatement();
+            Date date = new Date(System.currentTimeMillis());
+            String query = "INSERT INTO MedicineOrder (MedicineId,Quantity,Date,SupplierId,TotalCost) VALUES (" + medicineOrder.getMedicine().getMedicineId() + "," + medicineOrder.getQuantity() + ",'" + date + "'," + medicineOrder.getSupplier().getSupplierId() + "," + medicineOrder.getTotal() + ")";
+            System.out.println(query);
+            statement.executeUpdate(query);
+
+
+
+        } catch (SQLException ex) {
+
+        }
+
+    }
+
 }

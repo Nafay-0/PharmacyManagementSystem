@@ -5,6 +5,7 @@ import com.Pharmacy.Project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -14,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 
 public class RegisterCashier {
@@ -28,6 +30,12 @@ public class RegisterCashier {
     @FXML
     private PasswordField passwordField;
 
+    public void goBack(ActionEvent event) throws IOException {
+        Stage stage = (Stage) regButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/AdminPage.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     public Boolean check_exist(String regName, String Password) throws SQLException, IOException {
         Pharmacy pharmacy = Pharmacy.getInstance();
         if(pharmacy.verifyCashier(regName,Password)){

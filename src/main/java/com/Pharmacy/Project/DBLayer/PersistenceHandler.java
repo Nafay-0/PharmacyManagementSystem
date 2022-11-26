@@ -50,4 +50,5 @@ public abstract class PersistenceHandler {
     public abstract void updateSale(Sale s) throws SQLException;
 
 
+    public abstract void insertOrder(MedicineOrder medicineOrder);
 }
