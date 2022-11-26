@@ -1,5 +1,6 @@
 package com.Pharmacy.Project.LogicComponent;
 
+import com.Pharmacy.Project.DBLayer.Factory;
 import com.Pharmacy.Project.DBLayer.PersistenceHandler;
 import com.Pharmacy.Project.DBLayer.mysqlPersistence;
 
@@ -20,6 +21,9 @@ public class MedicineCatalog {
     public void addMedicine(Medicine medicine , MedicineDescription description) {
         medicineList.add(medicine);
         medicineDescriptionMap.put(medicine.getMedicineId(), description);
+        System.out.println("Medicine added to catalog");
+        System.out.println("Medicine ID: " + medicine.getMedicineId());
+        System.out.println("Medicine Name: " + description.getMedicineName());
     }
     public void removeMedicine(Medicine medicine) {
         medicineList.remove(medicine);
@@ -48,7 +52,8 @@ public class MedicineCatalog {
                 medicine.setQuantity(quantity);
             }
         }
-        PersistenceHandler db = new mysqlPersistence();
+        Factory factory = Factory.getInstance();
+        PersistenceHandler db = factory.getDBhandler("mysql");
         db.updateStock(medicineId, quantity);
     }
     public ArrayList<Medicine> getUnavailableMedicine() {

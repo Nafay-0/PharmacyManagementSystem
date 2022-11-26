@@ -149,8 +149,10 @@ public class Pharmacy {
     }
 
     public void addMedicine(Medicine medicine, MedicineDescription medicineDescription) {
+        int id = db.addMedicine(medicine, medicineDescription);
+        medicine.setMedicineId(id);
         medicineCatalogue.addMedicine(medicine, medicineDescription);
-        db.addMedicine(medicine, medicineDescription);
+
 
     }
 

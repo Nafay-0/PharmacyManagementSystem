@@ -41,6 +41,11 @@ public class CashierController implements Initializable {
 
     Sale currentSale;
 
+    public void logOut(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/LoginPage.fxml")));
+        Stage window = (Stage) handleReturns.getScene().getWindow();
+        window.setScene(new Scene(root));
+    }
     public void goBack(ActionEvent event) throws IOException {
         Stage stage = (Stage)saleList.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/CashierPage.fxml")));

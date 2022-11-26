@@ -25,18 +25,12 @@
                     </font>
                 </Button>
          </children></AnchorPane>
-        <Label layoutX="176.0" layoutY="33.0" text="Add Medicine">
+        <Label layoutX="176.0" layoutY="33.0" text="Add New Medicine">
             <font>
                 <Font name="Arial Black" size="27.0" />
             </font>
         </Label>
-        <TextField fx:id="searchMed" layoutX="180.0" layoutY="101.0" prefHeight="28.0" prefWidth="392.0" promptText="Type Medicine Name" />
-        <Button fx:id="searchBut" alignment="CENTER" contentDisplay="CENTER" layoutX="582.0" layoutY="101.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="62.0" style="-fx-background-color: #009ee2; -fx-border-width: 1; -fx-border-radius: 15; -fx-background-radius: 15;" text="Search" textAlignment="CENTER" textFill="WHITE">
-            <font>
-                <Font name="Verdana" size="12.0" />
-            </font>
-        </Button>
-        <ListView fx:id="medListView" layoutX="176.0" layoutY="172.0" prefHeight="156.0" prefWidth="468.0" />
+        <ListView fx:id="medListView" layoutX="176.0" layoutY="148.0" prefHeight="180.0" prefWidth="468.0" />
         <AnchorPane layoutX="150.0" layoutY="482.0" prefHeight="118.0" prefWidth="600.0">
             <children>
                 <Button fx:id="addBtn" layoutX="402.0" layoutY="51.0" mnemonicParsing="false" onAction="#addMedicine" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #6bc45a; -fx-background-radius: 15;" text="Add" textAlignment="CENTER" textFill="WHITE" wrapText="true">
@@ -68,6 +62,7 @@
                 <Font size="14.0" />
             </font>
         </TextField>
-      <Text layoutX="179.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Medicines" />
+      <Text layoutX="176.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Medicines" />
+      <Label fx:id="headerLabel" layoutX="176.0" layoutY="125.0" text=" " />
     </children>
 </AnchorPane>

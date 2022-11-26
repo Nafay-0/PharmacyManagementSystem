@@ -74,8 +74,8 @@ public class FilePersistence extends PersistenceHandler {
     }
 
     @Override
-    public void addMedicine(Medicine m, MedicineDescription md) {
-
+    public int addMedicine(Medicine m, MedicineDescription md) {
+    return 0;
     }
 
     @Override

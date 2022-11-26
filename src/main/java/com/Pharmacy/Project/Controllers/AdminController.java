@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
@@ -23,6 +24,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
+    public Label headerLabel;
     @FXML
     private Button reportBtn;
     @FXML
@@ -39,6 +41,11 @@ public class AdminController implements Initializable {
     private Button orderBtn;
 
 
+    public void logOut(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/LoginPage.fxml")));
+        Stage window = (Stage) reportBtn.getScene().getWindow();
+        window.setScene(new Scene(root));
+    }
     public void goBack(ActionEvent event) throws IOException {
         Stage stage = (Stage) addBtn.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/AdminPage.fxml")));
@@ -118,8 +125,8 @@ public class AdminController implements Initializable {
                 return;
             }
             ArrayList<Medicine> avlMedicines = pharmacy.getAllMedicines();
-            String header = "MedicineId\tName\tQuantity";
-            medList.getItems().add(header);
+            String header = "MedId   \tName\tQuantity";
+            headerLabel.setText(header);
             for (Medicine medicine : avlMedicines) {
                 int medicineId = medicine.getMedicineId();
                 int quantity = medicine.getQuantity();
@@ -130,6 +137,9 @@ public class AdminController implements Initializable {
                 if(medicineDescription != null){
                     String medicineName = medicineDescription.getMedicineName();
                     Display = Display + "  \t  \t" + medicineName;
+                }
+                else {
+                    Display = Display + "  \t  \t" + "Not Available";
                 }
                 Display = Display + "  \t  \t " + quantity;
                 medList.getItems().add(Display);

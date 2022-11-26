@@ -25,7 +25,7 @@ public abstract class PersistenceHandler {
     public abstract void insertSales(Sale S);
     abstract void addManager(Manager M);
     public abstract void addCashier(Cashier c);
-    public abstract void addMedicine(Medicine m, MedicineDescription md);
+    public abstract int addMedicine(Medicine m, MedicineDescription md);
     public abstract void removeMedicine(Medicine m);
     public abstract void addSupplier(Supplier s, ArrayList<Medicine> medicines) throws SQLException;
     abstract void addOrder(MedicineOrder o);

@@ -91,7 +91,7 @@ public class mysqlPersistence extends PersistenceHandler {
     }
 
     @Override
-    public void  addMedicine(Medicine m, MedicineDescription md) {
+    public int  addMedicine(Medicine m, MedicineDescription md) {
         // Medicine MedicineId,quantity
         // MedicineDescription MedicineId,MedicineName,MedicineDescription,Company,price
         try {
@@ -113,6 +113,19 @@ public class mysqlPersistence extends PersistenceHandler {
             query = "INSERT INTO MedicineDescription (MedicineId,MedicineName,MedicineDescription,Company,price) VALUES (" + MedicineId + ", '" + md.getMedicineName() + "', '" + md.getMedicineDescription() + "', '" + md.getCompany() + "', " + md.getPrice() + ")";
             System.out.println(query);
             statement.executeUpdate(query);
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        // return ID of new medicine
+        String query = "SELECT MedicineId FROM Medicine WHERE MedicineId = (SELECT MAX(MedicineId) FROM Medicine)";
+        System.out.println(query);
+        try {
+            resultSet = statement.executeQuery(query);
+            int MedicineId = 0;
+            if (resultSet.next()) {
+                MedicineId = resultSet.getInt("MedicineId");
+            }
+            return MedicineId;
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }

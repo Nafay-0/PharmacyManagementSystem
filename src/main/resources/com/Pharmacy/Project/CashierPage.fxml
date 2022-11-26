@@ -9,7 +9,14 @@
 
 <AnchorPane prefHeight="600" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Pharmacy.Project.Controllers.CashierController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #2596be;" />
+      <AnchorPane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #2596be;">
+         <children>
+            <Button layoutX="16.0" layoutY="13.0" mnemonicParsing="false" onAction="#logOut" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: red; -fx-background-radius: 15;" text="LogOut" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
       <AnchorPane layoutX="243.0" layoutY="155.0" prefHeight="431.0" prefWidth="483.0">
          <children>
             <Text layoutX="84.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Sale">
