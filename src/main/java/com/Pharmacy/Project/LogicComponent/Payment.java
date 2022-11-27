@@ -7,7 +7,27 @@ public class Payment {
     private String paymentType;
     private int paymentStatus;
     private int paymentOrderId;
+    private int paymentSalesId;
+    public int getPaymentSalesId() {
+        return paymentSalesId;
+    }
 
+    public void setPaymentSalesId(int paymentSalesId) {
+        this.paymentSalesId = paymentSalesId;
+    }
+
+
+
+    public Payment(){
+        paymentId = 0;
+        paymentAmount = 0;
+        paymentDate = "";
+        paymentType = "";
+        paymentStatus = 0;
+        paymentOrderId = 0;
+        paymentSalesId = 0;
+
+    }
     public Payment(int paymentId, int paymentAmount, String paymentDate, String paymentType, int paymentStatus, int paymentOrderId) {
         this.paymentId = paymentId;
         this.paymentAmount = paymentAmount;

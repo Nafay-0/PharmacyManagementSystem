@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,6 +31,8 @@ public class RemoveMedicineController implements Initializable {
     public ListView medList;
     @FXML
     public Button removeBtn;
+    @FXML
+    public TextField searchMed;
 
     public void removeMedicine() throws SQLException {
         // get selected medicine
@@ -96,5 +99,43 @@ public class RemoveMedicineController implements Initializable {
             Display = Display + "  \t  \t " + quantity;
             medList.getItems().add(Display);
         }
+    }
+
+    public void SearchMedicine(ActionEvent actionEvent) {
+        String tosearch = searchMed.getText();
+        Pharmacy pharmacy;
+        try {
+            pharmacy = Pharmacy.getInstance();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ArrayList<Medicine> avlMedicines = null;
+        try {
+            avlMedicines = pharmacy.getAllMedicines();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        medList.getItems().clear();
+        String header = "MedicineId\tName\tQuantity";
+        medList.getItems().add(header);
+        for (Medicine medicine : avlMedicines) {
+            int medicineId = medicine.getMedicineId();
+            int quantity = medicine.getQuantity();
+            String Display = String.valueOf(medicineId);
+            MedicineCatalog medicineCatalog = new MedicineCatalog();
+            medicineCatalog = pharmacy.getMedicineCatalogue();
+            MedicineDescription medicineDescription = medicineCatalog.getMedicineDescription(medicineId);
+            String medicineName ="";
+            if(medicineDescription != null){
+               medicineName = medicineDescription.getMedicineName();
+            }
+            if (medicineName.contains(tosearch)) {
+                Display = Display + "  \t  \t" + medicineName;
+                Display = Display + "  \t  \t " + quantity;
+                medList.getItems().add(Display);
+            }
+        }
+
+
     }
 }

@@ -109,6 +109,7 @@ public class CashierController implements Initializable {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/Pharmacy/Project/CashierPage.fxml")));
             stage.setScene(new Scene(root));
             stage.show();
+            pharmacy.createPayment(currentSale, paidAmount);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Payment");

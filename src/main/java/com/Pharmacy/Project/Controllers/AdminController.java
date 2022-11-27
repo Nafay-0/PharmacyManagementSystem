@@ -10,10 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,7 +21,10 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
+    @FXML
     public Label headerLabel;
+    @FXML
+    public TextField searchMed;
     @FXML
     private Button reportBtn;
     @FXML
@@ -180,5 +180,54 @@ public class AdminController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
 
+    }
+
+    public void SearchMedicine(ActionEvent actionEvent) {
+        String Tosearch = searchMed.getText();
+        medList.getItems().clear();
+        Pharmacy pharmacy = null;
+        try {
+            pharmacy = Pharmacy.getInstance();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            // if medList is NULL then it returns
+            if (medList == null) {
+                return;
+            }
+            ArrayList<Medicine> avlMedicines = pharmacy.getAllMedicines();
+            String header = "MedId   \tName\tQuantity";
+            headerLabel.setText(header);
+            for (Medicine medicine : avlMedicines) {
+                int medicineId = medicine.getMedicineId();
+                int quantity = medicine.getQuantity();
+                String Display = String.valueOf(medicineId);
+                MedicineCatalog medicineCatalog = new MedicineCatalog();
+                medicineCatalog = pharmacy.getMedicineCatalogue();
+                MedicineDescription medicineDescription = medicineCatalog.getMedicineDescription(medicineId);
+                String medicineName = " ";
+                if(medicineDescription != null){
+                    medicineName= medicineDescription.getMedicineName();
+
+                }
+                else {
+                    Display = Display + "  \t  \t" + "Not Available";
+                }
+                if (medicineName.contains(Tosearch)){
+                    Display = Display + "  \t  \t" + medicineName;
+                    Display = Display + "  \t  \t " + quantity;
+                    medList.getItems().add(Display);
+                }
+            }
+
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 }

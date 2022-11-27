@@ -7,6 +7,7 @@ import com.Pharmacy.Project.DBLayer.mysqlPersistence;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Pharmacy {
     private String name;
@@ -202,5 +203,13 @@ public class Pharmacy {
 
     public ArrayList<MedicineOrder> getOrdersReport() {
         return db.getOrdersReport();
+    }
+
+    public void createPayment(Sale currentSale, double paidAmount) {
+        Payment payment = new Payment();
+        payment.setPaymentAmount((int) paidAmount);
+        payment.setPaymentType("Cash");
+        payment.setPaymentSalesId(currentSale.getSaleId());
+
     }
 }
