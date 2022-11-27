@@ -20,17 +20,17 @@
             </Button>
          </children>
       </AnchorPane>
-      <Button fx:id="saleBtn" layoutX="521.0" layoutY="138.0" mnemonicParsing="false" onAction="#getSalesReport" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: red; -fx-background-radius: 15;" text="Sales" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="saleBtn" layoutX="521.0" layoutY="138.0" mnemonicParsing="false" onAction="#getSalesReport" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: magenta; -fx-background-radius: 15;" text="Sales" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <Button fx:id="OrdersBtn" layoutX="385.0" layoutY="138.0" mnemonicParsing="false" onAction="#getOrdersReport" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: red; -fx-background-radius: 15;" text="Orders" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="OrdersBtn" layoutX="385.0" layoutY="138.0" mnemonicParsing="false" onAction="#getOrdersReport" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: green; -fx-background-radius: 15;" text="Orders" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <DatePicker fx:id="startDate" layoutX="291.0" layoutY="82.0" promptText="Starting Date" style="-fx-border-color: black; -fx-background-color: transparent;" />
+      <DatePicker fx:id="startDate" layoutX="287.0" layoutY="83.0" promptText="Starting Date" style="-fx-border-color: black; -fx-background-color: transparent;" />
       <DatePicker fx:id="endDate" layoutX="541.0" layoutY="83.0" promptText="Ending Date" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 1 1 1 1;" />
       <Text layoutX="251.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start" />
       <Text layoutX="510.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End" />
