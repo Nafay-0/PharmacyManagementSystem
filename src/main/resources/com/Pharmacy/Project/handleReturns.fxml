@@ -29,7 +29,7 @@
                             <Font size="20.0" />
                         </font>
                     </Label>
-                    <Button layoutX="520.0" layoutY="520.0" mnemonicParsing="false" onAction="#endReturn" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #009ee2; -fx-background-radius: 15;" text="Pay" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                    <Button layoutX="520.0" layoutY="520.0" mnemonicParsing="false" onAction="#endReturn" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #0ffe0f; -fx-background-radius: 15;" text="Pay" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                         <font>
                             <Font size="13.0" />
                         </font>
@@ -39,7 +39,7 @@
                      <Font name="System Bold" size="34.0" />
                   </font>
                </Label>
-               <Button layoutX="628.0" layoutY="311.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #009ee2; -fx-background-radius: 15;" text="Remove" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <Button layoutX="628.0" layoutY="311.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #410000; -fx-background-radius: 15;" text="Remove" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                   <font>
                      <Font size="13.0" />
                   </font>
