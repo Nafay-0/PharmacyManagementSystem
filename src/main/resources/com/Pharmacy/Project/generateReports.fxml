@@ -20,12 +20,12 @@
             </Button>
          </children>
       </AnchorPane>
-      <Button fx:id="saleBtn" layoutX="521.0" layoutY="138.0" mnemonicParsing="false" onAction="#getSalesReport" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: magenta; -fx-background-radius: 15;" text="Sales" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="saleBtn" layoutX="521.0" layoutY="138.0" mnemonicParsing="false" onAction="#getSalesReport" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #22619D; -fx-background-radius: 15;" text="Sales" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <Button fx:id="OrdersBtn" layoutX="385.0" layoutY="138.0" mnemonicParsing="false" onAction="#getOrdersReport" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: green; -fx-background-radius: 15;" text="Orders" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="OrdersBtn" layoutX="385.0" layoutY="138.0" mnemonicParsing="false" onAction="#getOrdersReport" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #1EB097; -fx-background-radius: 15;" text="Orders" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font size="13.0" />
          </font>

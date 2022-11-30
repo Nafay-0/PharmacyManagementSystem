@@ -25,6 +25,7 @@
                   <Image url="@../../Assets/pharmacy.png" />
                </image>
             </ImageView>
+            <AnchorPane layoutY="213.0" prefHeight="21.0" prefWidth="258.0" style="-fx-background-color: white;" />
          </children>
       </AnchorPane>
       <Text layoutX="362.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login to view Controls" textAlignment="CENTER" wrappingWidth="194.3798828125">
